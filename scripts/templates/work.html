@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
+  <script>document.documentElement.classList.add('js-motion');</script>
+
+  <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS5YM8ZLV2');
+  </script>
+
+  <!-- Google Search Console 所有権確認 -->
+  <meta name="google-site-verification" content="soC5SoE3Riu4IZuzTICA-fnKDoNmDh6ZiA8ZC-GLr-A" />
+
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#07080B">
+
+  <link rel="canonical" href="https://niwayukun-1234.github.io/works/{{SLUG}}/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
+  <meta property="og:url" content="https://niwayukun-1234.github.io/works/{{SLUG}}/">
+  <meta property="og:title" content="{{TITLE}} | 丹羽優貴のポートフォリオ">
+  <meta property="og:description" content="{{SUMMARY}}">
+  <meta property="og:image" content="https://niwayukun-1234.github.io{{OG_IMAGE}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{TITLE}} のキービジュアル">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}} | 丹羽優貴のポートフォリオ">
+  <meta name="twitter:description" content="{{SUMMARY}}">
+  <meta name="twitter:image" content="https://niwayukun-1234.github.io{{OG_IMAGE}}">
+
+  <title>{{TITLE}} | 丹羽優貴のポートフォリオ</title>
+  <meta name="description" content="{{SUMMARY}} 使用技術: {{TECH_PLAIN}}。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{JSONLD_TYPE}}",
+    "name": "{{TITLE}}",
+    "description": "{{SUMMARY}}",
+    "url": "https://niwayukun-1234.github.io/works/{{SLUG}}/",
+    "dateCreated": "{{YEAR}}",
+    "inLanguage": "ja",
+    "author": { "@type": "Person", "name": "丹羽優貴", "url": "https://niwayukun-1234.github.io/" },
+    "creator": { "@type": "Person", "name": "丹羽優貴" },
+    "keywords": "{{TECH_PLAIN}}"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <div class="ambient__still"></div>
+    <div class="ambient__layer ambient__layer--a"></div>
+    <div class="ambient__layer ambient__layer--b"></div>
+    <div class="ambient__grain"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../../index.html" aria-label="丹羽優貴 ポートフォリオ トップへ">
+        <span class="brand__mark">YUKI NIWA</span>
+        <span class="brand__sub">Portfolio / 2026</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span class="nav-toggle__bars"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../../index.html#works">Works</a></li>
+          <li><a class="nav__link" href="../../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../../index.html#skills">Skills</a></li>
+          <li><a class="nav__link" href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <main id="main" class="wrap detail">
+      <a class="breadcrumb" href="../../index.html#works">← 作品一覧へ戻る</a>
+
+      <p class="label">Work / {{YEAR}}</p>
+      <h1 class="detail__title">{{TITLE}}</h1>
+      <p class="detail__summary">{{SUMMARY}}</p>
+
+      <dl class="detail__meta">
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Role</dt>
+          <dd class="detail__meta-val">{{ROLE}}</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Year</dt>
+          <dd class="detail__meta-val">{{YEAR}}</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Tech</dt>
+          <dd class="detail__meta-val"><ul class="tags">{{TECH_TAGS}}</ul></dd>
+        </div>
+      </dl>
+
+      <figure class="detail__hero reveal">
+        {{THUMB}}
+      </figure>
+
+      <div class="detail__body">
+        <article class="detail-block reveal">
+          <h2 class="detail-block__key">01 / Challenge</h2>
+          <p class="detail-block__text">{{BODY_CHALLENGE}}</p>
+        </article>
+        <article class="detail-block reveal" data-delay="1">
+          <h2 class="detail-block__key">02 / Built</h2>
+          <p class="detail-block__text">{{BODY_BUILT}}</p>
+        </article>
+        <article class="detail-block reveal" data-delay="2">
+          <h2 class="detail-block__key">03 / Stack</h2>
+          <p class="detail-block__text">{{BODY_STACK}}</p>
+        </article>
+        <article class="detail-block reveal" data-delay="3">
+          <h2 class="detail-block__key">04 / Result</h2>
+          <p class="detail-block__text">{{BODY_RESULT}}</p>
+        </article>
+      </div>
+
+      {{LINKS}}
+
+      <nav class="detail__nav" aria-label="作品間の移動">
+        <a href="../{{PREV_SLUG}}/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          {{PREV_TITLE}}
+        </a>
+        <a href="../{{NEXT_SLUG}}/">
+          {{NEXT_TITLE}}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <div>
+          <span class="site-footer__name">丹羽優貴</span>
+          <span class="site-footer__name-en">YUKI NIWA</span>
+        </div>
+        <p class="site-footer__copy">© 2026 YUKI NIWA</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

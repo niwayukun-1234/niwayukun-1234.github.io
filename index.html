@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
+  <script>document.documentElement.classList.add('js-motion');</script>
+
+  <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS5YM8ZLV2');
+  </script>
+
+  <!-- Google Search Console 所有権確認 -->
+  <meta name="google-site-verification" content="soC5SoE3Riu4IZuzTICA-fnKDoNmDh6ZiA8ZC-GLr-A" />
+
+  <!-- favicon / theme -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#07080B">
+
+  <!-- canonical / OGP -->
+  <link rel="canonical" href="https://niwayukun-1234.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
+  <meta property="og:url" content="https://niwayukun-1234.github.io/">
+  <meta property="og:title" content="丹羽優貴 | 同志社大経済学部の学生エンジニア">
+  <meta property="og:description" content="丹羽優貴（にわ ゆうき）の開発成果物をまとめたポートフォリオ。Uタップ・パチ単語・BeEngineer LP など。">
+  <meta property="og:image" content="https://niwayukun-1234.github.io/ogp/ogp-keyvisual.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="丹羽優貴のポートフォリオ キービジュアル">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="丹羽優貴 | 同志社大経済学部の学生エンジニア">
+  <meta name="twitter:description" content="丹羽優貴（にわ ゆうき）の開発成果物をまとめたポートフォリオ。Uタップ・パチ単語・BeEngineer LP など。">
+  <meta name="twitter:image" content="https://niwayukun-1234.github.io/ogp/ogp-keyvisual.png">
+
+  <title>丹羽優貴 | 同志社大経済学部の学生エンジニア</title>
+  <meta name="description" content="丹羽優貴（にわ ゆうき / YUKI NIWA）のポートフォリオ。同志社大学経済学部の学生エンジニアとして、Uタップ・パチ単語・BeEngineer LP などの開発成果物をまとめています。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "丹羽優貴",
+    "alternateName": ["にわ ゆうき", "Yuki Niwa"],
+    "url": "https://niwayukun-1234.github.io/",
+    "email": "yuki.niwa0626@gmail.com",
+    "jobTitle": "学生エンジニア",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "同志社大学" },
+    "sameAs": ["https://github.com/niwayukun-1234"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "ユニバーシティタップ（Uタップ）",
+          "url": "https://niwayukun-1234.github.io/works/univtap/",
+          "author": { "@type": "Person", "name": "丹羽優貴" },
+          "creator": { "@type": "Person", "name": "丹羽優貴" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "SoftwareSourceCode",
+          "name": "パチ単語（パチンコ演出の英単語アプリ）",
+          "url": "https://niwayukun-1234.github.io/works/pachitango/",
+          "programmingLanguage": "TypeScript",
+          "author": { "@type": "Person", "name": "丹羽優貴" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "CreativeWork",
+          "name": "BeEngineer（中高生向けプログラミング教室）LP",
+          "url": "https://niwayukun-1234.github.io/works/niwa-lp/",
+          "author": { "@type": "Person", "name": "丹羽優貴" }
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <!-- アンビエント（背景）。load 後に .is-live が付くまで動かない -->
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <div class="ambient__still"></div>
+    <div class="ambient__layer ambient__layer--a"></div>
+    <div class="ambient__layer ambient__layer--b"></div>
+    <div class="ambient__grain"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="index.html" aria-label="丹羽優貴 ポートフォリオ トップへ">
+        <span class="brand__mark">YUKI NIWA</span>
+        <span class="brand__sub">Portfolio / 2026</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span class="nav-toggle__bars"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#works">Works</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#skills">Skills</a></li>
+          <li><a class="nav__link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <main id="main">
+
+      <!-- ============================ Hero ============================ -->
+      <section class="hero" id="hero" aria-labelledby="hero-name">
+        <div class="wrap hero__grid">
+          <div>
+            <p class="label">Portfolio / 2026</p>
+            <!-- LCP要素: 装飾を重ねない -->
+            <h1 class="hero__name" id="hero-name">丹羽優貴</h1>
+            <span class="hero__name-en" aria-hidden="true">YUKI NIWA</span>
+            <hr class="hero__rule">
+            <p class="hero__claim">相手の勝ちを、徹底して考える。</p>
+            <p class="hero__meta">
+              <span>同志社大学 経済学部経済学科 1年</span>
+              <span>西大和学園中高 卒業</span>
+              <span>2007年生まれ</span>
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--solid" href="#works">作品を見る</a>
+              <a class="btn btn--ghost" href="https://github.com/niwayukun-1234" target="_blank" rel="noopener">
+                GitHub
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__panel" role="img" aria-label="静けさの精度を表す抽象的なキービジュアル面">
+            <span class="hero__panel-glow" aria-hidden="true"></span>
+            <span class="hero__panel-note">Quiet Precision</span>
+            <span class="hero__panel-monogram" aria-hidden="true">YN</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ Works ============================ -->
+      <section class="section" id="works" aria-labelledby="works-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="label">02 / Works</span>
+            <h2 class="h-section" id="works-title">つくったもの</h2>
+          </div>
+
+          <ul class="works__grid" id="works-grid">
+            <li class="works__item"><p class="work-card__summary">作品を読み込んでいます…</p></li>
+          </ul>
+
+          <noscript>
+            <p class="work-card__summary" style="margin-top:var(--s-6)">
+              JavaScript が無効のため作品カードを読み込めません。<a href="works/univtap/">Uタップ</a> /
+              <a href="works/pachitango/">パチ単語</a> / <a href="works/niwa-lp/">BeEngineer LP</a> の各ページをご覧ください。
+            </p>
+          </noscript>
+        </div>
+      </section>
+
+      <!-- ============================ About ============================ -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="label">03 / About</span>
+            <h2 class="h-section" id="about-title">わたしについて</h2>
+          </div>
+
+          <div class="about__grid">
+            <div class="about__body reveal">
+              <p class="lead">同志社大学経済学部の学生エンジニアとして、企画から実装までを一貫して手がけています。</p>
+              <p>所属するコミュニティの中で「これは不便だ」と感じた瞬間を出発点に、目の前の課題を解くものを形にしてきました。Uタップでは代表として企画を立て、パチ単語では学習体験そのものを設計し、BeEngineer LP では問い合わせまでの導線を組み直しました。</p>
+              <p>大事にしているのは、<strong>相手の勝ちを徹底して考える</strong>ことです。使う人が何を得たいのかを先に決め、そこから逆算して技術を選びます。装飾を足すより、迷いを減らす。派手さではなく、余白・字間・動きの抑制で精度を伝えることを意識しています。</p>
+              <p>経済学を学びながら、開発では仮説と検証の型を身につけてきました。今後は企画と実装の両輪で、使う人の勝ちにつながるプロダクトを増やしていきます。</p>
+            </div>
+
+            <aside class="about__aside reveal" data-delay="1">
+              <figure class="portrait">
+                <img src="images/profile-photo.jpg" alt="丹羽優貴のプロフィール写真" width="800" height="1000" loading="lazy" decoding="async">
+                <span class="portrait__fallback" aria-hidden="true"><span>YN</span></span>
+              </figure>
+              <table class="meta-table">
+                <caption class="sr-only">丹羽優貴のプロフィール</caption>
+                <tbody>
+                  <tr><th scope="row">学歴</th><td>同志社大学 経済学部経済学科 1年<br>西大和学園中学校・高等学校 卒業</td></tr>
+                  <tr><th scope="row">生年</th><td>2007年生まれ</td></tr>
+                  <tr><th scope="row">関心領域</th><td>プロダクト企画 / フロントエンド実装 / UX設計</td></tr>
+                </tbody>
+              </table>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ Skills ============================ -->
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="label">04 / Skills</span>
+            <h2 class="h-section" id="skills-title">技術</h2>
+          </div>
+
+          <div class="skills__grid">
+            <article class="skill-group reveal">
+              <h3 class="skill-group__label">Languages</h3>
+              <ul class="tags">
+                <li class="tag">TypeScript</li>
+                <li class="tag">JavaScript</li>
+                <li class="tag">HTML</li>
+                <li class="tag">CSS</li>
+                <li class="tag">SQL</li>
+              </ul>
+            </article>
+
+            <article class="skill-group reveal" data-delay="1">
+              <h3 class="skill-group__label">Frameworks</h3>
+              <ul class="tags">
+                <li class="tag">React</li>
+                <li class="tag">TanStack Router</li>
+                <li class="tag">Tailwind CSS</li>
+                <li class="tag">shadcn/ui</li>
+                <li class="tag">CSS Animations</li>
+              </ul>
+            </article>
+
+            <article class="skill-group reveal" data-delay="2">
+              <h3 class="skill-group__label">Infra &amp; Tools</h3>
+              <ul class="tags">
+                <li class="tag">Supabase</li>
+                <li class="tag">PostgreSQL</li>
+                <li class="tag">Vite</li>
+                <li class="tag">Git / GitHub</li>
+                <li class="tag">Lovable</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ Contact ============================ -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="label">05 / Contact</span>
+            <h2 class="h-section" id="contact-title">連絡先</h2>
+          </div>
+
+          <div class="contact__grid">
+            <a class="contact-link reveal" href="https://github.com/niwayukun-1234" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.55v-2.1c-3.2.7-3.88-1.4-3.88-1.4-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13v3.16c0 .31.21.66.8.55A11.5 11.5 0 0 0 12 .5Z"/></svg>
+              <span class="contact-link__text">
+                <span class="contact-link__label">GitHub</span>
+                <span class="contact-link__value">github.com/niwayukun-1234</span>
+              </span>
+              <span class="contact-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <!-- X / Facebook のユーザー名は未提示のため、プラットフォーム直下のURLを暫定で設定（README参照） -->
+            <a class="contact-link reveal" data-delay="1" href="https://x.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2h3.3l-7.2 8.24L23.5 22h-6.62l-5.19-6.78L5.7 22H2.38l7.7-8.8L1.6 2h6.8l4.7 6.2L18.9 2Zm-1.16 17.9h1.83L7.36 4H5.4l12.34 15.9Z"/></svg>
+              <span class="contact-link__text">
+                <span class="contact-link__label">X</span>
+                <span class="contact-link__value">x.com</span>
+              </span>
+              <span class="contact-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="contact-link reveal" data-delay="2" href="https://www.facebook.com/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.9h-2.33V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+              <span class="contact-link__text">
+                <span class="contact-link__label">Facebook</span>
+                <span class="contact-link__value">facebook.com</span>
+              </span>
+              <span class="contact-link__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="contact-link reveal" data-delay="3" href="mailto:yuki.niwa0626@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+              <span class="contact-link__text">
+                <span class="contact-link__label">Email</span>
+                <span class="contact-link__value">yuki.niwa0626@gmail.com</span>
+              </span>
+              <span class="contact-link__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <div>
+          <span class="site-footer__name">丹羽優貴</span>
+          <span class="site-footer__name-en">YUKI NIWA</span>
+        </div>
+        <p class="site-footer__copy">© 2026 YUKI NIWA</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- works.json が取得できない環境向けのフォールバック（§5 の内容と同一） -->
+  <script type="application/json" id="works-fallback-data">
+  {"works":[{"slug":"univtap","title":"ユニバーシティタップ（Uタップ）","summary":"教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。","role":"代表・企画","tech":["React","JavaScript","Tailwind CSS","shadcn/ui","TanStack Router","Supabase","PostgreSQL"],"year":2026,"thumbnail":{"wide":"images/work-univtap.jpg","square":"images/work-univtap.jpg"},"links":[{"label":"Uタップ","url":"https://preview--club-room-radar.lovable.app/auth"}]},{"slug":"pachitango","title":"パチ単語（パチンコ演出の英単語アプリ）","summary":"パチンコの演出で正誤を体感する、モバイル向け英単語アプリ。","role":"設計・実装","tech":["TypeScript","React","CSS Animations"],"year":2026,"thumbnail":{"wide":"images/work-pachitango.png","square":"images/work-pachitango.png"},"links":[]},{"slug":"niwa-lp","title":"BeEngineer（中高生向けプログラミング教室）LP","summary":"問い合わせまでの導線を1ページに再設計した LP。","role":"設計・実装","tech":["HTML","CSS","JavaScript"],"year":2026,"thumbnail":{"wide":"images/work-niwa-lp.png","square":"images/work-niwa-lp.png"},"links":[{"label":"GitHub","url":"https://github.com/niwayukun-1234"}]}]}
+  </script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

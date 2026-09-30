@@ -1,0 +1,66 @@
+/* ==========================================================================
+   tokens.css — デザイントークン（数値・色の唯一の出典）
+   コンセプト: 静けさの精度 / Quiet Precision
+   直値の色・数値をコンポーネント側に書かないこと。
+   ========================================================================== */
+
+:root {
+  /* --- 色 --- */
+  --bg-base: #07080b;
+  --surface-1: rgba(255, 255, 255, 0.035);
+  --line-1: rgba(255, 255, 255, 0.08);
+
+  --text-hi: #f2f4f8;
+  --text-mid: #a8afbd;
+  --text-low: #5d6577; /* メタ情報のみ。本文には使わない */
+
+  --accent: #5b7cff;
+  --accent-2: #4fd1c5; /* 背景の揺らぎのみ。文字には使わない */
+
+  /* --- 時間 --- */
+  --dur-ui: 240ms;      /* UI。これより遅い UI 速度は使わない */
+  --dur-reveal: 620ms;  /* スクロール出現 */
+  --dur-ambient: 24s;   /* 背景アンビエント。これより速い背景は使わない */
+
+  /* --- イージング --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* --- 書体 --- */
+  --font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-en: "Inter", var(--font-jp);
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- 組版 --- */
+  --lh-body: 1.85;
+  --track-label: 0.22em;
+  --measure: 68ch;
+
+  /* --- レイアウト --- */
+  --grid: 12;
+  --wrap-max: 1440px;
+  --gutter: clamp(20px, 5vw, 88px);
+  --space-unit: 4px;
+  --section-gap: clamp(96px, 10vw, 144px);
+
+  --radius-face: 24px;
+  --border-face: 1px solid var(--line-1);
+
+  --tap-min: 44px;
+}
+
+/* 余白スケール（4px基準） */
+:root {
+  --s-1: calc(var(--space-unit) * 1);   /* 4  */
+  --s-2: calc(var(--space-unit) * 2);   /* 8  */
+  --s-3: calc(var(--space-unit) * 3);   /* 12 */
+  --s-4: calc(var(--space-unit) * 4);   /* 16 */
+  --s-5: calc(var(--space-unit) * 5);   /* 20 */
+  --s-6: calc(var(--space-unit) * 6);   /* 24 */
+  --s-8: calc(var(--space-unit) * 8);   /* 32 */
+  --s-10: calc(var(--space-unit) * 10); /* 40 */
+  --s-12: calc(var(--space-unit) * 12); /* 48 */
+  --s-16: calc(var(--space-unit) * 16); /* 64 */
+  --s-20: calc(var(--space-unit) * 20); /* 80 */
+  --s-24: calc(var(--space-unit) * 24); /* 96 */
+  --s-32: calc(var(--space-unit) * 32); /* 128 */
+}

@@ -1,0 +1,15 @@
+{
+  "name": "niwa-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "丹羽優貴 ポートフォリオ — 静けさの精度 / Quiet Precision（依存ゼロの静的サイト）",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-works.mjs",
+    "build:dist": "node scripts/build-works.mjs --out dist",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

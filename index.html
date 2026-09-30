@@ -229,9 +229,27 @@
 
           <div class="about__grid">
             <div class="about__body reveal">
-              <p>大学入学直後から、大学生向けWebアプリ「Utap」の企画・開発・運営に取り組み、企画から5日間でリリース、1ヶ月で130人超のユーザーを獲得しました。</p>
-              <p>その後、エンジニアリングを体系的に学ぶため株式会社ワオテックでエンジニアインターンを開始し、Webページ・アプリ・システム開発などの実務経験を積んでいます。また、複数のハッカソンにも参加し、受賞経験もあります。</p>
-              <p>現在は、法人営業のインターン経験を活かして個人事業主として法人営業にも取り組み、自ら案件を獲得して開発まで一貫して担当しています。</p>
+              <ol class="timeline">
+                <li class="timeline__item">
+                  <time class="timeline__date" datetime="2026-04">2026.04</time>
+                  <h3 class="timeline__title">大学生向けWebアプリ「Utap」を企画・開発・運営</h3>
+                  <p class="timeline__text">企画から5日間でリリースし、1ヶ月で130人超のユーザーを獲得。</p>
+                </li>
+                <li class="timeline__item">
+                  <time class="timeline__date" datetime="2026-06">2026.06</time>
+                  <h3 class="timeline__title">ITベンチャーでエンジニアインターン開始</h3>
+                  <p class="timeline__text">Webページ・アプリ・システム開発などの実務経験を積む。複数のハッカソンに参加し、受賞経験あり。</p>
+                </li>
+                <li class="timeline__item">
+                  <time class="timeline__date" datetime="2026-07">2026.07</time>
+                  <h3 class="timeline__title">ITベンチャーで法人営業インターン開始</h3>
+                </li>
+                <li class="timeline__item is-current">
+                  <time class="timeline__date" datetime="2026-09">2026.09 – 現在</time>
+                  <h3 class="timeline__title">個人事業主として活動開始</h3>
+                  <p class="timeline__text">法人営業の経験を活かして自ら案件を獲得し、開発まで一貫して担当。</p>
+                </li>
+              </ol>
             </div>
 
             <aside class="about__aside reveal" data-delay="1">
@@ -260,40 +278,25 @@
             <h2 class="h-section" id="skills-title">技術</h2>
           </div>
 
-          <div class="skills__grid">
-            <article class="skill-group reveal">
-              <h3 class="skill-group__label">Languages</h3>
-              <ul class="tags">
-                <li class="tag">TypeScript</li>
-                <li class="tag">JavaScript</li>
-                <li class="tag">HTML</li>
-                <li class="tag">CSS</li>
-                <li class="tag">SQL</li>
-              </ul>
-            </article>
+          <dl class="skill-list reveal">
+            <div class="skill-row">
+              <dt class="skill-row__label"><span class="skill-row__en">Languages</span><span class="skill-row__jp">言語</span></dt>
+              <dd class="skill-row__items"><ul class="tags"><li class="tag">TypeScript</li><li class="tag">JavaScript</li><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">SQL</li></ul></dd>
+            </div>
+            <div class="skill-row">
+              <dt class="skill-row__label"><span class="skill-row__en">Frameworks</span><span class="skill-row__jp">フレームワーク</span></dt>
+              <dd class="skill-row__items"><ul class="tags"><li class="tag">React</li><li class="tag">TanStack Router</li><li class="tag">Tailwind CSS</li><li class="tag">shadcn/ui</li><li class="tag">CSS Animations</li></ul></dd>
+            </div>
+            <div class="skill-row">
+              <dt class="skill-row__label"><span class="skill-row__en">Infra &amp; Tools</span><span class="skill-row__jp">インフラ・ツール</span></dt>
+              <dd class="skill-row__items"><ul class="tags"><li class="tag">Supabase</li><li class="tag">PostgreSQL</li><li class="tag">Vite</li><li class="tag">Git / GitHub</li></ul></dd>
+            </div>
+            <div class="skill-row">
+              <dt class="skill-row__label"><span class="skill-row__en">AI Tools</span><span class="skill-row__jp">よく使うAIツール</span></dt>
+              <dd class="skill-row__items"><ul class="tags"><li class="tag">Claude Code</li><li class="tag">Genspark</li><li class="tag">Codex</li></ul></dd>
+            </div>
+          </dl>
 
-            <article class="skill-group reveal" data-delay="1">
-              <h3 class="skill-group__label">Frameworks</h3>
-              <ul class="tags">
-                <li class="tag">React</li>
-                <li class="tag">TanStack Router</li>
-                <li class="tag">Tailwind CSS</li>
-                <li class="tag">shadcn/ui</li>
-                <li class="tag">CSS Animations</li>
-              </ul>
-            </article>
-
-            <article class="skill-group reveal" data-delay="2">
-              <h3 class="skill-group__label">Infra &amp; Tools</h3>
-              <ul class="tags">
-                <li class="tag">Supabase</li>
-                <li class="tag">PostgreSQL</li>
-                <li class="tag">Vite</li>
-                <li class="tag">Git / GitHub</li>
-                <li class="tag">Lovable</li>
-              </ul>
-            </article>
-          </div>
         </div>
       </section>
 

@@ -37,20 +37,111 @@
     if (!root.classList.contains("intro-on")) {
       intro.remove();
     } else {
+      var introSound = null;
       var endIntro = function () { if (intro.parentNode) intro.remove(); };
-      intro.addEventListener("animationend", function (e) {
-        if (e.target === intro) endIntro();
-      });
-      setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
       var skip = function () {
+        if (introSound) introSound.stop();
         root.classList.remove("intro-on");
         endIntro();
         window.removeEventListener("pointerdown", skip);
         window.removeEventListener("keydown", skip);
       };
-      window.addEventListener("pointerdown", skip, { once: true });
-      window.addEventListener("keydown", skip, { once: true });
+      var play = function (withSound) {
+        if (withSound) introSound = playIntroSound();
+        root.classList.remove("intro-wait");
+        intro.addEventListener("animationend", function (e) {
+          if (e.target === intro) endIntro();
+        });
+        setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
+        // 入口を押した操作そのものでスキップしないよう、少し待ってから受け付ける
+        setTimeout(function () {
+          window.addEventListener("pointerdown", skip, { once: true });
+          window.addEventListener("keydown", skip, { once: true });
+        }, 300);
+      };
+      var buttons = intro.querySelectorAll("[data-intro-sound]");
+      Array.prototype.forEach.call(buttons, function (btn) {
+        btn.addEventListener("click", function () {
+          play(btn.getAttribute("data-intro-sound") === "on");
+        }, { once: true });
+      });
+      if (buttons[0]) buttons[0].focus({ preventScroll: true });
     }
+  }
+
+  /* オープニングの効果音（Web Audio で合成。音源ファイルなし）
+     タイムラインは CSS の演出（2.3s）に合わせている：
+     0〜0.65s ロゴがぼかしから浮かぶ → 0.4〜1.0s 線が伸びる →
+     1.25s ロゴが手前に抜ける → 1.45s 本編が現れる（見出しが順に上がる） */
+  function playIntroSound() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return null;
+    var ctx;
+    try { ctx = new AC(); } catch (e) { return null; }
+    var t0 = ctx.currentTime + 0.03;
+    var master = ctx.createGain();
+    master.gain.value = 0.7;
+    var comp = ctx.createDynamicsCompressor();
+    master.connect(comp).connect(ctx.destination);
+
+    var noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+    var data = noiseBuf.getChannelData(0);
+    for (var i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+
+    function env(g, points) {
+      g.gain.setValueAtTime(0.0001, t0);
+      points.forEach(function (p) { g.gain.exponentialRampToValueAtTime(Math.max(p[1], 0.0001), t0 + p[0]); });
+    }
+    function noise(start, dur, type, f0, f1, points) {
+      var src = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+      src.buffer = noiseBuf;
+      f.type = type; f.Q.value = 1.2;
+      f.frequency.setValueAtTime(f0, t0 + start);
+      f.frequency.exponentialRampToValueAtTime(f1, t0 + start + dur);
+      env(g, points);
+      src.connect(f).connect(g).connect(master);
+      src.start(t0 + start); src.stop(t0 + start + dur + 0.1);
+    }
+    function tone(type, start, dur, f0, f1, points) {
+      var o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = type;
+      o.frequency.setValueAtTime(f0, t0 + start);
+      if (f1) o.frequency.exponentialRampToValueAtTime(f1, t0 + start + dur);
+      env(g, points);
+      o.connect(g).connect(master);
+      o.start(t0 + start); o.stop(t0 + start + dur + 0.05);
+    }
+
+    // ロゴが浮かび上がる：空気が満ちるようなスウェルと、静かな和音
+    noise(0, 0.9, "bandpass", 300, 2400, [[0.05, 0.001], [0.6, 0.12], [0.9, 0.0001]]);
+    [220, 329.63, 440, 554.37].forEach(function (f, k) {
+      tone("sine", 0, 1.6, f * (1 + (k - 1.5) * 0.002), 0, [[0.05, 0.001], [0.6, 0.05], [1.2, 0.04], [1.6, 0.0001]]);
+    });
+    // 線が伸びる：上昇するきらめき
+    tone("sine", 0.42, 0.6, 880, 1760, [[0.45, 0.001], [0.6, 0.035], [1.02, 0.0001]]);
+    // ロゴが手前に抜ける：シュッと加速する風切り音
+    noise(1.1, 0.4, "highpass", 500, 7000, [[1.12, 0.001], [1.42, 0.28], [1.7, 0.0001]]);
+    // 本編が現れる瞬間：低いインパクトと明るいチャイム
+    tone("sine", 1.45, 0.7, 130, 38, [[1.46, 0.6], [2.15, 0.0001]]);
+    [1318.5, 1975.5, 2637].forEach(function (f, k) {
+      tone("triangle", 1.45 + k * 0.03, 1.4, f, 0, [[1.46 + k * 0.03, 0.07 - k * 0.015], [2.85, 0.0001]]);
+    });
+    // 見出しが順に上がる：小さなティック
+    for (var n = 0; n < 7; n++) {
+      var at = 1.45 + n * 0.09;
+      tone("sine", at, 0.08, 1800 + n * 140, 0, [[at + 0.005, 0.03], [at + 0.08, 0.0001]]);
+    }
+
+    var closed = false;
+    function close() { if (!closed) { closed = true; ctx.close().catch(function () {}); } }
+    setTimeout(close, 3800);
+    return {
+      stop: function () {
+        if (closed) return;
+        master.gain.setTargetAtTime(0.0001, ctx.currentTime, 0.05);
+        setTimeout(close, 300);
+      }
+    };
   }
 
   /* ------------------------------------------------------------------

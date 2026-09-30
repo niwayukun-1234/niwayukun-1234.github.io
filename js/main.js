@@ -30,6 +30,30 @@
   }
 
   /* ------------------------------------------------------------------
+     1.2 オープニング演出の後片付け（終わったら要素ごと外す。クリックでスキップ）
+     ------------------------------------------------------------------ */
+  var intro = document.getElementById("intro");
+  if (intro) {
+    if (!root.classList.contains("intro-on")) {
+      intro.remove();
+    } else {
+      var endIntro = function () { if (intro.parentNode) intro.remove(); };
+      intro.addEventListener("animationend", function (e) {
+        if (e.target === intro) endIntro();
+      });
+      setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
+      var skip = function () {
+        root.classList.remove("intro-on");
+        endIntro();
+        window.removeEventListener("pointerdown", skip);
+        window.removeEventListener("keydown", skip);
+      };
+      window.addEventListener("pointerdown", skip, { once: true });
+      window.addEventListener("keydown", skip, { once: true });
+    }
+  }
+
+  /* ------------------------------------------------------------------
      1.5 画像フォールバック
         素材（profile-photo / work-*.jpg|png）が未配置でも破綻させない。
         読み込み失敗した img を隠し、下に敷いたモノグラム面を見せる。

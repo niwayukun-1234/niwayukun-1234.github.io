@@ -112,7 +112,7 @@ function linksMarkup(work, extraClass) {
 /** 作品ごとの OGP。未用意なら既定キービジュアルにフォールバック。 */
 function ogImageFor(slug) {
   const perWork = join(ROOT, "ogp", "work-" + slug + ".png");
-  return existsSync(perWork) ? "/ogp/work-" + slug + ".png" : "/ogp/ogp-keyvisual.png";
+  return existsSync(perWork) ? "/ogp/work-" + slug + ".png" : "/ogp/ogp-portfolio.png";
 }
 
 function jsonLdType(work) {

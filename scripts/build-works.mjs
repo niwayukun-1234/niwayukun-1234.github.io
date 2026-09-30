@@ -87,20 +87,26 @@ function thumbMarkup(work) {
   );
 }
 
-function linksMarkup(work) {
+const EXT_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+  'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+  '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
+  '<path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
+
+/* 1つ目のリンクは「◯◯を開く」の目立つボタン、2つ目以降は控えめなボタン */
+function linksMarkup(work, extraClass) {
   if (!work.links || !work.links.length) return "";
   const items = work.links
-    .map(
-      (l) =>
-        '<a class="btn btn--ghost" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
-        esc(l.label) +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
-        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-        '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
-        '<path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a>'
+    .map((l, i) =>
+      i === 0
+        ? '<a class="btn btn--solid btn--launch btn--lg" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+          esc(l.label) + "を開く" + EXT_ICON + "</a>"
+        : '<a class="btn btn--ghost" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+          esc(l.label) + EXT_ICON + "</a>"
     )
     .join("");
-  return '<div class="detail__links reveal">' + items + "</div>";
+  const note = extraClass ? '<span class="detail__links-note">実際に触れます（新しいタブで開きます）</span>' : "";
+  return '<div class="detail__links' + (extraClass ? " " + extraClass : "") + '">' + items + note + "</div>";
 }
 
 /** 作品ごとの OGP。未用意なら既定キービジュアルにフォールバック。 */
@@ -139,6 +145,7 @@ works.forEach((work, i) => {
     .replaceAll("{{OG_IMAGE}}", esc(ogImageFor(work.slug)))
     .replaceAll("{{JSONLD_TYPE}}", jsonLdType(work))
     .replaceAll("{{THUMB}}", thumbMarkup(work))
+    .replaceAll("{{LINKS_TOP}}", linksMarkup(work, "detail__links--top"))
     .replaceAll("{{LINKS}}", linksMarkup(work))
     .replaceAll("{{PREV_SLUG}}", esc(prev.slug))
     .replaceAll("{{PREV_TITLE}}", esc(prev.title))

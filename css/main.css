@@ -379,6 +379,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 
 .work-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: var(--border-face);
@@ -478,6 +479,22 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .work-card__more svg { width: 14px; height: 14px; transition: transform var(--dur-ui) var(--ease-out); }
 .work-card:hover .work-card__more svg { transform: translateX(3px); }
 
+/* カード全体を詳細ページへのリンクにする（タイトルのリンクを面全体に広げる） */
+.work-card__link::after { content: ""; position: absolute; inset: 0; z-index: 2; }
+.work-card__link:focus-visible { outline: none; }
+.work-card:has(.work-card__link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* 実物のプロダクトを開くボタン（詳細リンクより前面） */
+.btn--launch {
+  position: relative;
+  z-index: 3;
+  font-weight: 600;
+  box-shadow: 0 6px 20px -8px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+.btn--launch:hover { transform: translateY(-2px); }
+.btn--lg { min-height: 52px; padding: var(--s-4) var(--s-8); font-size: 15px; }
+.btn--lg svg { width: 18px; height: 18px; }
+
 .tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
 .tag {
   padding: var(--s-1) var(--s-3);
@@ -518,7 +535,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .portrait img {
   position: relative;
   z-index: 1;
-  width: 100%; height: 100%; object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;
 }
 /* 写真が無い場合も破綻させない（モノグラム面） */
 .portrait__fallback {
@@ -732,7 +749,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: var(--lh-body);
   color: var(--text-mid);
 }
-.detail__links { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-12); }
+.detail__links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); margin-top: var(--s-12); }
+.detail__links--top { margin-top: var(--s-8); margin-bottom: var(--s-4); }
+.detail__links-note { font-size: 13px; color: var(--text-mid); }
 
 .detail__nav {
   display: flex;

@@ -533,6 +533,47 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .about__body .lead { color: var(--text-hi); font-size: 17px; }
 .about__body strong { color: var(--text-hi); font-weight: 600; }
 
+/* 経歴タイムライン（縦・時系列） */
+.timeline { position: relative; list-style: none; margin: 0; padding: 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px; top: 10px; bottom: 10px;
+  width: 1px;
+  background: linear-gradient(var(--line-1), color-mix(in srgb, var(--accent) 60%, transparent));
+}
+.timeline__item { position: relative; padding: 0 0 var(--s-10) var(--s-10); }
+.timeline__item:last-child { padding-bottom: 0; }
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 5px;
+  width: 15px; height: 15px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  border: 2px solid color-mix(in srgb, var(--text-hi) 35%, transparent);
+}
+.timeline__item.is-current::before {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.timeline__date {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.timeline__title {
+  margin-top: var(--s-2);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-hi);
+}
+.timeline__text { margin-top: var(--s-2); color: var(--text-mid); line-height: 1.8; }
+
 .about__aside { display: flex; flex-direction: column; gap: var(--s-8); }
 
 .portrait {
@@ -586,26 +627,27 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* --------------------------------------------------------------------------
    8. Skills
    -------------------------------------------------------------------------- */
-.skills__grid {
+.skill-list {
+  border-top: 1px solid var(--line-1);
+}
+.skill-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(180px, 3fr) minmax(0, 9fr);
   gap: var(--s-8);
+  align-items: center;
+  padding: var(--s-6) 0;
+  border-bottom: 1px solid var(--line-1);
 }
-.skill-group {
-  padding: var(--s-8);
-  border: var(--border-face);
-  border-radius: var(--radius-face);
-  background: var(--surface-1);
-}
-.skill-group__label {
-  margin-bottom: var(--s-6);
+.skill-row__label { display: flex; flex-direction: column; gap: var(--s-1); }
+.skill-row__en {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: var(--track-label);
   text-transform: uppercase;
   color: var(--text-low);
 }
-.skill-group .tags .tag { font-size: 12px; }
+.skill-row__jp { font-size: 16px; font-weight: 600; color: var(--text-hi); }
+.skill-row__items .tag { font-size: 14px; padding: 6px 14px; color: var(--text-hi); }
 /* 習熟度%バーは使わない */
 
 /* --------------------------------------------------------------------------
@@ -839,10 +881,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* --------------------------------------------------------------------------
    14. レスポンシブ（375 / 768 / 1440 で破綻しない）
    -------------------------------------------------------------------------- */
-@media (max-width: 1024px) {
-  .skills__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
 @media (max-width: 860px) {
   .hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--s-10); }
   .hero__panel { aspect-ratio: 4 / 3; }
@@ -871,7 +909,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .nav__link { padding-inline: 0; min-height: var(--tap-min); font-size: 15px; }
 
   .works__grid { grid-template-columns: minmax(0, 1fr); }
-  .skills__grid { grid-template-columns: minmax(0, 1fr); }
+  .skill-row { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); padding: var(--s-5) 0; }
   .contact__grid { grid-template-columns: minmax(0, 1fr); }
   .detail__body { grid-template-columns: minmax(0, 1fr); }
   .section-head { margin-bottom: var(--s-10); }
@@ -882,7 +920,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hero__name { letter-spacing: -0.02em; }
   .hero__name-en { letter-spacing: 6px; }
   .work-card__body { padding: var(--s-5) var(--s-5) var(--s-6); }
-  .skill-group { padding: var(--s-6); }
   .detail-block { padding: var(--s-6); }
 }
 

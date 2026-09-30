@@ -183,20 +183,38 @@
     );
   }
 
+  var EXT_ICON =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>' +
+    '<path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
+
+  /* 実物のプロダクトへ飛ぶボタン（カード内で詳細リンクより前面に置く） */
+  function launchMarkup(work) {
+    var link = work.links && work.links[0];
+    if (!link) return "";
+    return (
+      '<a class="btn btn--solid btn--launch" href="' + esc(link.url) + '" target="_blank" rel="noopener">' +
+        esc(link.label) + "を開く" + EXT_ICON +
+      "</a>"
+    );
+  }
+
   function cardMarkup(work, index) {
     var tags = (work.tech || [])
       .map(function (t) { return '<li class="tag">' + esc(t) + "</li>"; })
       .join("");
     return (
       '<li class="works__item reveal" data-delay="' + (index % 2) + '">' +
-        '<a class="work-card" href="/works/' + esc(work.slug) + '/">' +
+        '<article class="work-card">' +
           '<div class="work-card__thumb">' + thumbMarkup(work, { w: 800, h: 450 }) + "</div>" +
           '<div class="work-card__body">' +
-            '<h3 class="work-card__title">' + esc(work.title) + "</h3>" +
+            '<span class="work-card__year">' + esc(work.year) + "</span>" +
+            '<h3 class="work-card__title"><a class="work-card__link" href="/works/' + esc(work.slug) + '/">' + esc(work.title) + "</a></h3>" +
             '<p class="work-card__summary">' + esc(work.summary) + "</p>" +
             '<ul class="tags">' + tags + "</ul>" +
             '<div class="work-card__foot">' +
-              '<span class="work-card__year">' + esc(work.year) + "</span>" +
+              launchMarkup(work) +
               '<span class="work-card__more">詳細を見る' +
                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
                 'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -204,10 +222,11 @@
               "</span>" +
             "</div>" +
           "</div>" +
-        "</a>" +
+        "</article>" +
       "</li>"
     );
   }
+
 
   function renderWorks(works) {
     if (!grid || !works || !works.length) return;

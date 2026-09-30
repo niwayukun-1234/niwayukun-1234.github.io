@@ -26,7 +26,7 @@
 ├─ works.json                       # 作品データ（ブリーフ§5 の内容そのまま）
 ├─ 404.html                         # 404ページ
 ├─ robots.txt / sitemap.xml         # SEO（sitemap は works.json から自動生成）
-├─ favicon.svg                      # YNモノグラム
+├─ favicon.ico / favicon-*.png      # NYロゴ（apple-touch-icon-180.png も）
 ├─ css/
 │  ├─ tokens.css                    # デザイントークン（ブリーフ§4）
 │  └─ main.css                      # コンポーネントCSS
@@ -37,7 +37,7 @@
 │  ├─ templates/work.html           # 作品詳細テンプレート
 │  └─ serve.mjs                     # ローカル確認用サーバ（node scripts/serve.mjs）
 ├─ images/                          # work-<slug>.jpg（各作品のトップ画面）／ profile-photo.jpg は納品待ち
-├─ ogp/     (納品待ち)              # ogp-keyvisual.png / work-<slug>.png
+├─ ogp/                             # ogp-keyvisual.png（NYロゴ、1200×630）
 ├─ .github/workflows/deploy.yml     # GitHub Pages デプロイ
 └─ _notes/build-conformance.md      # 受け入れ基準の自己確認記録
 ```
@@ -100,7 +100,7 @@ npm run build:dist   # 上記＋一式を dist/ にコピー
 
 ## 8. 未実装 / 納品待ち
 
-- **画像素材（デザイナー納品待ち）**: `images/profile-photo.jpg`、`images/work-*.jpg|png`、`ogp/ogp-keyvisual.png`、`ogp/work-<slug>.png`、favicon一式、`bg-atmosphere`。
+- **画像素材**: 作品サムネ・プロフィール写真・OGP・favicon は配置済み。作品別OGP（`ogp/work-<slug>.png`）は未作成のため既定キービジュアルを使用。
   未配置でもモノグラム面＋技術タグで表示が破綻しないよう実装済み（詳細は `_notes/build-conformance.md`）。
 - **X / Facebook のユーザーURL**: `https://x.com/narakendaihyou1` と `https://www.facebook.com/share/1CCJJEPvf8/` に設定済み。
 - 英語切替（今回は対象外）、WebGL/シェーダの見せ場（初版では不要）。

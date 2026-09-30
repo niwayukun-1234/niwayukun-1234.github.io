@@ -36,7 +36,7 @@
 │  ├─ build-works.mjs               # works.json → /works/<slug>/ と sitemap.xml を生成
 │  ├─ templates/work.html           # 作品詳細テンプレート
 │  └─ serve.mjs                     # ローカル確認用サーバ（node scripts/serve.mjs）
-├─ images/  (納品待ち)              # profile-photo.jpg / work-*.jpg|png
+├─ images/                          # work-<slug>.jpg（各作品のトップ画面）／ profile-photo.jpg は納品待ち
 ├─ ogp/     (納品待ち)              # ogp-keyvisual.png / work-<slug>.png
 ├─ .github/workflows/deploy.yml     # GitHub Pages デプロイ
 └─ _notes/build-conformance.md      # 受け入れ基準の自己確認記録

@@ -44,8 +44,8 @@
       ],
       "year": 2026,
       "thumbnail": {
-        "wide": "/images/work-pachitango.png",
-        "square": "/images/work-pachitango.png"
+        "wide": "/images/work-pachitango.jpg",
+        "square": "/images/work-pachitango.jpg"
       },
       "links": [
         {
@@ -72,8 +72,8 @@
       ],
       "year": 2026,
       "thumbnail": {
-        "wide": "/images/work-niwa-lp.png",
-        "square": "/images/work-niwa-lp.png"
+        "wide": "/images/work-niwa-lp.jpg",
+        "square": "/images/work-niwa-lp.jpg"
       },
       "links": [
         {
@@ -91,13 +91,21 @@
     {
       "slug": "hatake-map",
       "title": "はたけマップ",
-      "summary": "はたけマップの紹介文（本人記入待ち）。",
+      "summary": "地図の上に生産者の顔が並ぶ農産物マーケットプレイス。顔を見て予約し、畑まで取りに行ける。",
       "role": "設計・実装",
-      "tech": [],
+      "tech": [
+        "TypeScript",
+        "React Native",
+        "Expo",
+        "Expo Router",
+        "Convex",
+        "Mapbox",
+        "Zustand"
+      ],
       "year": 2026,
       "thumbnail": {
-        "wide": "/images/work-hatake-map.png",
-        "square": "/images/work-hatake-map.png"
+        "wide": "/images/work-hatake-map.jpg",
+        "square": "/images/work-hatake-map.jpg"
       },
       "links": [
         {
@@ -106,10 +114,10 @@
         }
       ],
       "body": {
-        "challenge": "本人記入待ち。",
-        "built": "本人記入待ち。",
-        "stack": "本人記入待ち。",
-        "result": "本人記入待ち。"
+        "challenge": "「誰が育てたか分からない野菜」しか選べず、生産者のこだわりや人柄が買い手に届かない。",
+        "built": "地図に承認済みの生産者を顔写真つきで並べ、生産者ページ・予約カゴ・受取時間帯の指定・発送・カード決済（テスト）・双方向レビューまで備えた消費者アプリと生産者アプリ。運営の承認フローも実装。",
+        "stack": "Expo / React Native / TypeScript / Expo Router。地図は Mapbox、バックエンドは Convex（リアルタイム同期）、状態管理は Zustand。E2E は Maestro、配布は EAS Build / TestFlight。",
+        "result": "消費者・生産者・運営の一連の流れを1日で動く状態まで作り、iOS シミュレータで E2E テスト済み。TestFlight で配布できる状態。"
       }
     }
   ]

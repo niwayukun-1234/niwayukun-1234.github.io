@@ -878,3 +878,91 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (prefers-contrast: more) {
   :root { --line-1: rgba(255, 255, 255, 0.22); --text-mid: #c6ccd8; }
 }
+
+/* ==========================================================================
+   オープニング演出（トップのみ・外部から来たときだけ）
+   NYロゴがぼかしから浮かび上がり、手前にズームして抜けると本編がズームアウトで現れる
+   ========================================================================== */
+.intro { display: none; }
+.intro-on .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--bg-base);
+  pointer-events: none;
+  animation: intro-curtain 2.3s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+.intro__logo {
+  grid-area: 1 / 1;
+  width: min(38vw, 200px);
+  height: auto;
+  animation: intro-logo 2.3s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+.intro__line {
+  grid-area: 1 / 1;
+  align-self: center;
+  width: min(38vw, 200px);
+  height: 1px;
+  margin-top: calc(min(38vw, 200px) * 0.62);
+  background: var(--accent);
+  transform-origin: left center;
+  animation: intro-line 2.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes intro-logo {
+  0%   { opacity: 0; transform: scale(0.8); filter: blur(14px); }
+  28%  { opacity: 1; transform: scale(1);   filter: blur(0); }
+  55%  { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 0; transform: scale(16); }
+}
+@keyframes intro-line {
+  0%, 18% { transform: scaleX(0); opacity: 1; }
+  45%     { transform: scaleX(1); opacity: 1; }
+  60%     { transform: scaleX(1); opacity: 0; }
+  100%    { transform: scaleX(1); opacity: 0; }
+}
+@keyframes intro-curtain {
+  0%, 62% { opacity: 1; visibility: visible; }
+  100%    { opacity: 0; visibility: hidden; }
+}
+
+/* 本編：少し大きい状態からズームアウトして定位置へ */
+.intro-on .hero__grid { animation: hero-zoom-out 1.6s 1.25s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes hero-zoom-out {
+  from { opacity: 0; transform: scale(1.18); filter: blur(8px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+/* 見出しまわりは下から順番に */
+.intro-on .hero__grid > div:first-child > * {
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(1.45s + var(--i, 0) * 90ms);
+}
+.intro-on .hero__grid > div:first-child > :nth-child(1) { --i: 0; }
+.intro-on .hero__grid > div:first-child > :nth-child(2) { --i: 1; }
+.intro-on .hero__grid > div:first-child > :nth-child(3) { --i: 2; }
+.intro-on .hero__grid > div:first-child > :nth-child(4) { --i: 3; transform-origin: left; animation-name: hero-rule; }
+.intro-on .hero__grid > div:first-child > :nth-child(5) { --i: 4; }
+.intro-on .hero__grid > div:first-child > :nth-child(6) { --i: 5; }
+.intro-on .hero__grid > div:first-child > :nth-child(7) { --i: 6; }
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hero-rule {
+  from { transform: scaleX(0); }
+  to   { transform: none; }
+}
+/* ヘッダーは上からすっと降りてくる */
+.intro-on .site-header { animation: header-drop 0.9s 1.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes header-drop {
+  from { opacity: 0; transform: translateY(-100%); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro-on .intro { display: none; }
+  .intro-on .hero__grid,
+  .intro-on .hero__grid > div:first-child > *,
+  .intro-on .site-header { animation: none; }
+}

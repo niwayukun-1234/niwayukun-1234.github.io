@@ -7,6 +7,18 @@
   <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
   <script>document.documentElement.classList.add('js-motion');</script>
 
+  <!-- オープニング演出：外部から来たときだけ再生（サイト内の移動・#リンク・動きを減らす設定では出さない） -->
+  <script>
+    (function () {
+      try {
+        var d = document.documentElement, ref = document.referrer, internal = false;
+        try { internal = !!ref && new URL(ref).host === location.host; } catch (e) {}
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce && !internal && !location.hash) d.classList.add('intro-on');
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
   <script>
@@ -117,6 +129,11 @@
   </script>
 </head>
 <body>
+  <div class="intro" id="intro" aria-hidden="true">
+    <img class="intro__logo" src="images/logo-ny.png" alt="" width="524" height="433" decoding="async" fetchpriority="high">
+    <span class="intro__line"></span>
+  </div>
+
   <a class="skip-link" href="#main">本文へスキップ</a>
 
   <!-- アンビエント（背景）。load 後に .is-live が付くまで動かない -->

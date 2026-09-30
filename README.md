@@ -102,7 +102,7 @@ npm run build:dist   # 上記＋一式を dist/ にコピー
 
 - **画像素材（デザイナー納品待ち）**: `images/profile-photo.jpg`、`images/work-*.jpg|png`、`ogp/ogp-keyvisual.png`、`ogp/work-<slug>.png`、favicon一式、`bg-atmosphere`。
   未配置でもモノグラム面＋技術タグで表示が破綻しないよう実装済み（詳細は `_notes/build-conformance.md`）。
-- **X / Facebook のユーザーURL**: 未提示のため `https://x.com/` `https://www.facebook.com/` を暫定設定（確定後に差し替え）。
+- **X / Facebook のユーザーURL**: `https://x.com/narakendaihyou1` と `https://www.facebook.com/share/1CCJJEPvf8/` に設定済み。
 - 英語切替（今回は対象外）、WebGL/シェーダの見せ場（初版では不要）。
 
 ## 9. 次の一手（おすすめ）

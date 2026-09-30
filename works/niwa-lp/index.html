@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
+  <script>document.documentElement.classList.add('js-motion');</script>
+
+  <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,6 +16,7 @@
     gtag('config', 'G-HS5YM8ZLV2');
   </script>
 
+  <!-- Google Search Console 所有権確認 -->
   <meta name="google-site-verification" content="soC5SoE3Riu4IZuzTICA-fnKDoNmDh6ZiA8ZC-GLr-A" />
 
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
@@ -44,7 +49,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CreativeWork",
+    "@type": "SoftwareSourceCode",
     "name": "BeEngineer（中高生向けプログラミング教室）LP",
     "description": "問い合わせまでの導線を1ページに再設計した LP。",
     "url": "https://niwayukun-1234.github.io/works/niwa-lp/",
@@ -110,7 +115,7 @@
       </dl>
 
       <figure class="detail__hero reveal">
-        <div class="work-card__fallback"><span class="mono-mark">BE</span><span class="work-card__tags-inline"><span>HTML</span><span>CSS</span><span>JavaScript</span></span></div><img src="../../images/work-niwa-lp.png" alt="BeEngineer（中高生向けプログラミング教室）LP のスクリーンショット" width="1200" height="675" loading="eager" decoding="async">
+        <img src="../../images/work-niwa-lp.png" alt="BeEngineer（中高生向けプログラミング教室）LP のスクリーンショット" width="1200" height="675" loading="eager" decoding="async">
       </figure>
 
       <div class="detail__body">
@@ -132,15 +137,15 @@
         </article>
       </div>
 
-      <div class="detail__links reveal"><a class="btn btn--ghost" href="https://github.com/niwayukun-1234" target="_blank" rel="noopener">GitHub<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></div>
+      <div class="detail__links reveal"><a class="btn btn--ghost" href="https://niwayukun-1234.github.io/niwaLP/" target="_blank" rel="noopener">BeEngineer LP<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></div>
 
       <nav class="detail__nav" aria-label="作品間の移動">
         <a href="../pachitango/">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
           パチ単語（パチンコ演出の英単語アプリ）
         </a>
-        <a href="../univtap/">
-          ユニバーシティタップ（Uタップ）
+        <a href="../hatake-map/">
+          はたけマップ
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </nav>

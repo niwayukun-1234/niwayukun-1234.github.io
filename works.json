@@ -5,10 +5,26 @@
       "title": "ユニバーシティタップ（Uタップ）",
       "summary": "教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。",
       "role": "代表・企画",
-      "tech": ["React", "JavaScript", "Tailwind CSS", "shadcn/ui", "TanStack Router", "Supabase", "PostgreSQL"],
+      "tech": [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "TanStack Router",
+        "Supabase",
+        "PostgreSQL"
+      ],
       "year": 2026,
-      "thumbnail": { "wide": "/images/work-univtap.jpg", "square": "/images/work-univtap.jpg" },
-      "links": [{ "label": "Uタップ", "url": "https://preview--club-room-radar.lovable.app/auth" }],
+      "thumbnail": {
+        "wide": "/images/work-univtap.jpg",
+        "square": "/images/work-univtap.jpg"
+      },
+      "links": [
+        {
+          "label": "Uタップ",
+          "url": "https://preview--club-room-radar.lovable.app/auth"
+        }
+      ],
       "body": {
         "challenge": "大人数の学内コミュニティでは、待ち合わせや居場所の共有が口頭・チャット依存で非効率。（デモ）",
         "built": "教室にチェックインして居場所を共有する学内向けSNS。現在の居場所・入退室履歴・時間割・フレンドを備え、GPSを常時使わずチェックイン方式でプライバシーに配慮。（デモ）",
@@ -21,10 +37,22 @@
       "title": "パチ単語（パチンコ演出の英単語アプリ）",
       "summary": "パチンコの演出で正誤を体感する、モバイル向け英単語アプリ。",
       "role": "設計・実装",
-      "tech": ["TypeScript", "React", "CSS Animations"],
+      "tech": [
+        "TypeScript",
+        "React",
+        "CSS Animations"
+      ],
       "year": 2026,
-      "thumbnail": { "wide": "/images/work-pachitango.png", "square": "/images/work-pachitango.png" },
-      "links": [],
+      "thumbnail": {
+        "wide": "/images/work-pachitango.png",
+        "square": "/images/work-pachitango.png"
+      },
+      "links": [
+        {
+          "label": "パチ単語",
+          "url": "https://niwayukun-1234.github.io/https-cloud0327.github.io-Pachinko_learning-/"
+        }
+      ],
       "body": {
         "challenge": "英単語の暗記が単調で続かない。（デモ）",
         "built": "正解・不正解をパチンコの全画面演出で表現し、報酬感で反復を促すモバイルアプリ。所持玉・打ち出し速度などのUIも再現。（デモ）",
@@ -37,15 +65,51 @@
       "title": "BeEngineer（中高生向けプログラミング教室）LP",
       "summary": "問い合わせまでの導線を1ページに再設計した LP。",
       "role": "設計・実装",
-      "tech": ["HTML", "CSS", "JavaScript"],
+      "tech": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "year": 2026,
-      "thumbnail": { "wide": "/images/work-niwa-lp.png", "square": "/images/work-niwa-lp.png" },
-      "links": [{ "label": "GitHub", "url": "https://github.com/niwayukun-1234" }],
+      "thumbnail": {
+        "wide": "/images/work-niwa-lp.png",
+        "square": "/images/work-niwa-lp.png"
+      },
+      "links": [
+        {
+          "label": "BeEngineer LP",
+          "url": "https://niwayukun-1234.github.io/niwaLP/"
+        }
+      ],
       "body": {
         "challenge": "教室の魅力は伝わるのに、申込ボタンまでが遠く、問い合わせに至りにくい。（デモ）",
         "built": "FV → 悩み → カリキュラム → 受講者の声 → 料金 → FAQ → 申込フォームを1ページに再構成し、各所に申込導線を配置。（デモ）",
         "stack": "HTML / CSS / JavaScript で手書き。画像は軽量化、モバイルファーストのレスポンシブ。",
         "result": "申込フォームまでのスクロール距離を短縮。個人制作のため計測値は未取得。（デモ）"
+      }
+    },
+    {
+      "slug": "hatake-map",
+      "title": "はたけマップ",
+      "summary": "はたけマップの紹介文（本人記入待ち）。",
+      "role": "設計・実装",
+      "tech": [],
+      "year": 2026,
+      "thumbnail": {
+        "wide": "/images/work-hatake-map.png",
+        "square": "/images/work-hatake-map.png"
+      },
+      "links": [
+        {
+          "label": "はたけマップ",
+          "url": "https://niwayukun-1234.github.io/hatake-map/"
+        }
+      ],
+      "body": {
+        "challenge": "本人記入待ち。",
+        "built": "本人記入待ち。",
+        "stack": "本人記入待ち。",
+        "result": "本人記入待ち。"
       }
     }
   ]

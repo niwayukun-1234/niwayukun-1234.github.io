@@ -37,8 +37,12 @@
     if (!root.classList.contains("intro-on")) {
       intro.remove();
     } else {
-      var introSound = null;
+      var introSound = playIntroSound();
       var endIntro = function () { if (intro.parentNode) intro.remove(); };
+      intro.addEventListener("animationend", function (e) {
+        if (e.target === intro) endIntro();
+      });
+      setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
       var skip = function () {
         if (introSound) introSound.stop();
         root.classList.remove("intro-on");
@@ -46,26 +50,8 @@
         window.removeEventListener("pointerdown", skip);
         window.removeEventListener("keydown", skip);
       };
-      var play = function (withSound) {
-        if (withSound) introSound = playIntroSound();
-        root.classList.remove("intro-wait");
-        intro.addEventListener("animationend", function (e) {
-          if (e.target === intro) endIntro();
-        });
-        setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
-        // 入口を押した操作そのものでスキップしないよう、少し待ってから受け付ける
-        setTimeout(function () {
-          window.addEventListener("pointerdown", skip, { once: true });
-          window.addEventListener("keydown", skip, { once: true });
-        }, 300);
-      };
-      var buttons = intro.querySelectorAll("[data-intro-sound]");
-      Array.prototype.forEach.call(buttons, function (btn) {
-        btn.addEventListener("click", function () {
-          play(btn.getAttribute("data-intro-sound") === "on");
-        }, { once: true });
-      });
-      if (buttons[0]) buttons[0].focus({ preventScroll: true });
+      window.addEventListener("pointerdown", skip, { once: true });
+      window.addEventListener("keydown", skip, { once: true });
     }
   }
 
@@ -76,13 +62,24 @@
   function playIntroSound() {
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return null;
+    // iPhone のマナーモード中でも鳴らせるようにする（対応ブラウザのみ）
+    try { if (navigator.audioSession) navigator.audioSession.type = "playback"; } catch (e) {}
     var ctx;
     try { ctx = new AC(); } catch (e) { return null; }
+    // ページを一度も操作していないと、ブラウザによっては音を出せない（その場合は無音で演出だけ流す）
+    if (ctx.state !== "running") {
+      try { ctx.resume(); } catch (e) {}
+    }
     var t0 = ctx.currentTime + 0.03;
     var master = ctx.createGain();
-    master.gain.value = 0.7;
+    master.gain.value = 1.6;
+    // 音量を上げつつ割れないように軽く圧縮してから持ち上げる
     var comp = ctx.createDynamicsCompressor();
-    master.connect(comp).connect(ctx.destination);
+    comp.threshold.value = -12; comp.knee.value = 6; comp.ratio.value = 4;
+    comp.attack.value = 0.003; comp.release.value = 0.2;
+    var makeup = ctx.createGain();
+    makeup.gain.value = 1.15;
+    master.connect(comp).connect(makeup).connect(ctx.destination);
 
     var noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
     var data = noiseBuf.getChannelData(0);
@@ -134,6 +131,8 @@
 
     var closed = false;
     function close() { if (!closed) { closed = true; ctx.close().catch(function () {}); } }
+    // 再生を許可されないまま止まっている場合、後で一斉に鳴らないよう閉じておく
+    setTimeout(function () { if (ctx.state !== "running") close(); }, 400);
     setTimeout(close, 3800);
     return {
       stop: function () {

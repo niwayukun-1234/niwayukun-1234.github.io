@@ -7,15 +7,14 @@
   <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
   <script>document.documentElement.classList.add('js-motion');</script>
 
-  <!-- オープニング演出：外部から来たときだけ再生（サイト内の移動・#リンク・動きを減らす設定では出さない）。
-       ブラウザは操作前に音を出せないので、入口のボタンを押してから音付きで始める -->
+  <!-- オープニング演出：外部から来たときだけ再生（サイト内の移動・#リンク・動きを減らす設定では出さない） -->
   <script>
     (function () {
       try {
         var d = document.documentElement, ref = document.referrer, internal = false;
         try { internal = !!ref && new URL(ref).host === location.host; } catch (e) {}
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!reduce && !internal && !location.hash) d.classList.add('intro-on', 'intro-wait');
+        if (!reduce && !internal && !location.hash) d.classList.add('intro-on');
       } catch (e) {}
     })();
   </script>
@@ -128,19 +127,12 @@
     ]
   }
   </script>
+  <script src="js/analytics.js" defer></script>
 </head>
 <body>
-  <div class="intro" id="intro">
-    <img class="intro__logo" src="images/logo-ny.png" alt="" width="524" height="433" decoding="async" fetchpriority="high" aria-hidden="true">
-    <span class="intro__line" aria-hidden="true"></span>
-    <div class="intro__gate">
-      <p class="intro__gate-name">YUKI NIWA <span>PORTFOLIO</span></p>
-      <button class="intro__enter" type="button" data-intro-sound="on">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
-        タップして入る
-      </button>
-      <button class="intro__mute" type="button" data-intro-sound="off">音なしで見る</button>
-    </div>
+  <div class="intro" id="intro" aria-hidden="true">
+    <img class="intro__logo" src="images/logo-ny.png" alt="" width="524" height="433" decoding="async" fetchpriority="high">
+    <span class="intro__line"></span>
   </div>
 
   <a class="skip-link" href="#main">本文へスキップ</a>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>閲覧ログ | 管理</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <main class="adm">
+    <header class="adm__head">
+      <div>
+        <p class="adm__eyebrow">YUKI NIWA · ADMIN</p>
+        <h1 class="adm__title">閲覧ログ</h1>
+      </div>
+      <div class="adm__actions" id="actions" hidden>
+        <div class="seg" role="group" aria-label="期間">
+          <button type="button" data-days="7">7日</button>
+          <button type="button" data-days="30" aria-pressed="true">30日</button>
+          <button type="button" data-days="90">90日</button>
+        </div>
+        <button type="button" class="link" id="logout">ログアウト</button>
+      </div>
+    </header>
+
+    <p class="notice" id="notice" hidden></p>
+
+    <form class="login" id="login" hidden>
+      <p class="login__lead">Uタップと同じメールアドレスとパスワードでログインしてください。</p>
+      <label>メールアドレス<input type="email" name="email" autocomplete="username" required></label>
+      <label>パスワード<input type="password" name="password" autocomplete="current-password" required></label>
+      <button type="submit" class="btn">ログイン</button>
+      <p class="login__error" id="login-error" role="alert"></p>
+    </form>
+
+    <div id="dash" hidden>
+      <section class="kpis" aria-label="概要">
+        <div class="kpi"><span class="kpi__label">訪問者</span><strong class="kpi__value" id="k-visitors">–</strong><span class="kpi__sub">人（重複なし）</span></div>
+        <div class="kpi"><span class="kpi__label">訪問</span><strong class="kpi__value" id="k-sessions">–</strong><span class="kpi__sub">回</span></div>
+        <div class="kpi"><span class="kpi__label">ページビュー</span><strong class="kpi__value" id="k-pv">–</strong><span class="kpi__sub">回</span></div>
+        <div class="kpi"><span class="kpi__label">トップを最後まで見た</span><strong class="kpi__value" id="k-full">–</strong><span class="kpi__sub" id="k-full-sub"></span></div>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">日別の訪問者</h2>
+        <div class="daily" id="daily"></div>
+      </section>
+
+      <div class="grid2">
+        <section class="card">
+          <h2 class="card__title">トップページをどこまで見たか</h2>
+          <p class="card__note">トップを開いた訪問のうち、各セクションまで見た割合</p>
+          <div class="bars" id="reach"></div>
+        </section>
+        <section class="card">
+          <h2 class="card__title">スクロール到達率</h2>
+          <p class="card__note">トップを開いた訪問のうち、その位置までスクロールした割合</p>
+          <div class="bars" id="scroll"></div>
+        </section>
+      </div>
+
+      <div class="grid2">
+        <section class="card">
+          <h2 class="card__title">どこから来たか</h2>
+          <div class="bars" id="refs"></div>
+        </section>
+        <section class="card">
+          <h2 class="card__title">押されたリンク</h2>
+          <div class="bars" id="clicks"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2 class="card__title">最近の訪問</h2>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>日時</th><th>端末</th><th>流入元</th><th>見たページ</th><th>スクロール</th><th>最後に見た場所</th></tr></thead>
+            <tbody id="recent"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+  <div class="tip" id="tip" role="status" hidden></div>
+  <script src="../js/log-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

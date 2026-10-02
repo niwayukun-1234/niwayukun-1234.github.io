@@ -119,6 +119,39 @@
         "stack": "Expo / React Native / TypeScript / Expo Router。地図は Mapbox、バックエンドは Convex（リアルタイム同期）、状態管理は Zustand。E2E は Maestro、配布は EAS Build / TestFlight。",
         "result": "消費者・生産者・運営の一連の流れを1日で動く状態まで作り、iOS シミュレータで E2E テスト済み。TestFlight で配布できる状態。"
       }
+    },
+    {
+      "slug": "sales-ai",
+      "title": "Sales Desk（BtoB 営業管理ツール）",
+      "summary": "営業電話の録音を文字起こし・分析し、商材ごとに「受注につながる進め方」を蓄積する営業管理ツール。",
+      "role": "設計・実装",
+      "tech": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Supabase",
+        "Claude API",
+        "Zoom Phone API",
+        "Salesforce API"
+      ],
+      "year": 2026,
+      "thumbnail": {
+        "wide": "/images/work-sales-ai.jpg",
+        "square": "/images/work-sales-ai.jpg"
+      },
+      "links": [
+        {
+          "label": "Sales Desk デモ",
+          "url": "https://niwayukun-1234.github.io/sales-ai/"
+        }
+      ],
+      "body": {
+        "challenge": "営業の成功・失敗が個人の感覚にとどまり、どの話し方が受注につながったのかをチームで共有・再現できない。",
+        "built": "通話録音から文字起こし・話者分離を行い、受注／失注の要因、懸念への返し方、営業へのフィードバックを自動で作成。商材別の勝ちパターン集計、トークスクリプト作成、過去通話をもとにしたナレッジ検索に加え、Zoom Phone の録音取り込みと Salesforce への活動記録に対応。",
+        "stack": "Next.js（App Router）/ React / TypeScript / Tailwind CSS。データと認証は Supabase（PostgreSQL・pgvector）、文字起こしは AssemblyAI、分析と生成は Claude API。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。",
+        "result": "このページのデモは、ログイン不要でサンプルデータの全画面を操作できる静的版です。"
+      }
     }
   ]
 }

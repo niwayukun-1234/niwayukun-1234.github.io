@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
+  <script>document.documentElement.classList.add('js-motion');</script>
+
+  <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS5YM8ZLV2');
+  </script>
+
+  <!-- Google Search Console 所有権確認 -->
+  <meta name="google-site-verification" content="soC5SoE3Riu4IZuzTICA-fnKDoNmDh6ZiA8ZC-GLr-A" />
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../../favicon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon-180.png">
+  <meta name="theme-color" content="#07080B">
+
+  <link rel="canonical" href="https://niwayukun-1234.github.io/works/sales-ai/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
+  <meta property="og:url" content="https://niwayukun-1234.github.io/works/sales-ai/">
+  <meta property="og:title" content="Sales Desk（AI分析付き BtoB 営業管理ツール） | 丹羽優貴のポートフォリオ">
+  <meta property="og:description" content="営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。">
+  <meta property="og:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sales Desk（AI分析付き BtoB 営業管理ツール） のキービジュアル">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sales Desk（AI分析付き BtoB 営業管理ツール） | 丹羽優貴のポートフォリオ">
+  <meta name="twitter:description" content="営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。">
+  <meta name="twitter:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
+
+  <title>Sales Desk（AI分析付き BtoB 営業管理ツール） | 丹羽優貴のポートフォリオ</title>
+  <meta name="description" content="営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。 使用技術: TypeScript / Next.js / React / Tailwind CSS / Supabase / AssemblyAI / OpenAI Embeddings / Claude API / Zoom Phone API / Salesforce API。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Sales Desk（AI分析付き BtoB 営業管理ツール）",
+    "description": "営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。",
+    "url": "https://niwayukun-1234.github.io/works/sales-ai/",
+    "dateCreated": "2026",
+    "inLanguage": "ja",
+    "author": { "@type": "Person", "name": "丹羽優貴", "url": "https://niwayukun-1234.github.io/" },
+    "creator": { "@type": "Person", "name": "丹羽優貴" },
+    "keywords": "TypeScript / Next.js / React / Tailwind CSS / Supabase / AssemblyAI / OpenAI Embeddings / Claude API / Zoom Phone API / Salesforce API"
+  }
+  </script>
+  <script src="../../js/log-config.js" defer></script>
+  <script src="../../js/analytics.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <div class="ambient__still"></div>
+    <div class="ambient__layer ambient__layer--a"></div>
+    <div class="ambient__layer ambient__layer--b"></div>
+    <div class="ambient__grain"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../../index.html" aria-label="丹羽優貴 ポートフォリオ トップへ">
+        <span class="brand__mark">YUKI NIWA</span>
+        <span class="brand__sub">Portfolio / 2026</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span class="nav-toggle__bars"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../../index.html#works">Works</a></li>
+          <li><a class="nav__link" href="../../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../../index.html#skills">Skills</a></li>
+          <li><a class="nav__link" href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <main id="main" class="wrap detail">
+      <a class="breadcrumb" href="../../index.html#works">← 作品一覧へ戻る</a>
+
+      <p class="label">Work / 2026</p>
+      <h1 class="detail__title">Sales Desk（AI分析付き BtoB 営業管理ツール）</h1>
+      <p class="detail__summary">営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。</p>
+
+      <dl class="detail__meta">
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Role</dt>
+          <dd class="detail__meta-val">設計・実装</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Year</dt>
+          <dd class="detail__meta-val">2026</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Tech</dt>
+          <dd class="detail__meta-val"><ul class="tags"><li class="tag">TypeScript</li><li class="tag">Next.js</li><li class="tag">React</li><li class="tag">Tailwind CSS</li><li class="tag">Supabase</li><li class="tag">AssemblyAI</li><li class="tag">OpenAI Embeddings</li><li class="tag">Claude API</li><li class="tag">Zoom Phone API</li><li class="tag">Salesforce API</li></ul></dd>
+        </div>
+      </dl>
+
+      <div class="detail__links detail__links--top"><a class="btn btn--solid btn--launch btn--lg" href="https://niwayukun-1234.github.io/sales-ai/" target="_blank" rel="noopener">Sales Desk デモを開く<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a><span class="detail__links-note">実際に触れます（新しいタブで開きます）</span></div>
+
+      <figure class="detail__hero reveal">
+        <img src="../../images/work-sales-ai.jpg" alt="Sales Desk（AI分析付き BtoB 営業管理ツール） のスクリーンショット" width="1200" height="675" loading="eager" decoding="async">
+      </figure>
+
+      <div class="detail__body">
+        <article class="detail-block reveal">
+          <h2 class="detail-block__key">01 / Challenge</h2>
+          <p class="detail-block__text">営業の成功・失敗が個人の感覚にとどまり、どの話し方が受注につながったのかをチームで共有・再現できない。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="1">
+          <h2 class="detail-block__key">02 / Built</h2>
+          <p class="detail-block__text">AIが通話録音を文字起こし（話者分離つき）し、受注・失注の要因、効果のあった発言、懸念への返し方を抽出。通話ごとに評価スコア・良かった点・改善点・次のアクションを提示する。分析結果は商材別に集計され、受注パターンの把握、AIによるトークスクリプト作成、過去の通話をもとに答えるナレッジ検索（RAG）に使われる。Zoom Phone の録音取り込みと Salesforce への活動記録にも対応。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="2">
+          <h2 class="detail-block__key">03 / Stack</h2>
+          <p class="detail-block__text">Next.js（App Router）/ React / TypeScript / Tailwind CSS。データと認証は Supabase（PostgreSQL・pgvector によるベクトル検索）。文字起こしは AssemblyAI、通話分析・フィードバック・スクリプト生成は Claude API、埋め込みは OpenAI Embeddings。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="3">
+          <h2 class="detail-block__key">04 / Result</h2>
+          <p class="detail-block__text">このページのデモは、ログイン不要でサンプルデータの全画面（AI分析結果・受注パターン・スクリプト・外部連携）を操作できる静的版です。</p>
+        </article>
+      </div>
+
+      <div class="detail__links"><a class="btn btn--solid btn--launch btn--lg" href="https://niwayukun-1234.github.io/sales-ai/" target="_blank" rel="noopener">Sales Desk デモを開く<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></div>
+
+      <nav class="detail__nav" aria-label="作品間の移動">
+        <a href="../hatake-map/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          はたけマップ
+        </a>
+        <a href="../univtap/">
+          ユニバーシティタップ（Uタップ）
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <div>
+          <span class="site-footer__name">丹羽優貴</span>
+          <span class="site-footer__name-en">YUKI NIWA</span>
+        </div>
+        <p class="site-footer__copy">© 2026 YUKI NIWA</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

@@ -186,7 +186,7 @@ console.log("  ✓ sitemap.xml");
 const COPY = ["index.html", "404.html", "robots.txt", "favicon.svg", "favicon.ico",
   "works.json", ".nojekyll", "favicon-16.png", "favicon-32.png", "favicon-48.png",
   "favicon-512.png", "apple-touch-icon-180.png"];
-const COPY_DIRS = ["css", "js", "images", "ogp", "admin", "sales-ai"];
+const COPY_DIRS = ["css", "js", "images", "ogp", "admin", "sales-ai", "call-desk"];
 
 function copyFile(rel) {
   const from = join(ROOT, rel);

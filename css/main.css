@@ -1059,6 +1059,68 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   from { opacity: 0; transform: translateY(-100%); }
   to   { opacity: 1; transform: none; }
 }
+/* アプリ内ブラウザ（LINE など）だけ：入口のボタンを押すまで演出を止めておき、押した瞬間から音付きで再生 */
+html.intro-wait { overflow: hidden; }
+.intro-wait .intro,
+.intro-wait .intro__logo,
+.intro-wait .intro__line,
+.intro-wait .hero__grid,
+.intro-wait .hero__grid > div:first-child > *,
+.intro-wait .site-header { animation-play-state: paused; }
+.intro__gate { display: none; }
+.intro-wait .intro { pointer-events: auto; }
+.intro-wait .intro__gate {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-6);
+  animation: gate-in 0.8s var(--ease-out) both;
+}
+.intro__gate-name {
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: var(--text-hi);
+}
+.intro__gate-name span { margin-left: 0.6em; font-family: var(--font-mono); font-weight: 400; color: var(--text-low); }
+.intro__enter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 56px;
+  padding: var(--s-4) var(--s-10);
+  border: 1px solid color-mix(in srgb, var(--text-hi) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--text-hi) 6%, transparent);
+  color: var(--text-hi);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  animation: gate-pulse 2.4s ease-in-out infinite;
+}
+.intro__enter svg { width: 20px; height: 20px; }
+.intro__mute {
+  min-height: var(--tap-min);
+  padding: 0 var(--s-4);
+  background: none;
+  border: 0;
+  color: var(--text-low);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+@keyframes gate-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes gate-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  50%      { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 18%, transparent); }
+}
 @media (prefers-reduced-motion: reduce) {
   .intro-on .intro { display: none; }
   .intro-on .hero__grid,

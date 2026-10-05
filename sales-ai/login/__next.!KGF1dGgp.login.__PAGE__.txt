@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[15567,["/sales-ai/_next/static/chunks/05-c3ty_6dwfk.js","/sales-ai/_next/static/chunks/14mrh2-p_w84d.js","/sales-ai/_next/static/chunks/3gzl95s0qbe5l.js","/sales-ai/_next/static/chunks/0pq0hlkj28u5_.js"],"default"]
+3:I[97367,["/sales-ai/_next/static/chunks/05-c3ty_6dwfk.js","/sales-ai/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"demo":true}],[["$","script","script-0",{"src":"/sales-ai/_next/static/chunks/3gzl95s0qbe5l.js","async":true}],["$","script","script-1",{"src":"/sales-ai/_next/static/chunks/0pq0hlkj28u5_.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mOJOM5P_uT9FArTjcuvl-"}
+5:null

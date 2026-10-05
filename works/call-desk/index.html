@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- JS有効のときだけ出現アニメを有効化（JS無効なら静止画フォールバック） -->
+  <script>document.documentElement.classList.add('js-motion');</script>
+
+  <!-- Google tag (gtag.js) : 全ページの <head> 直後 / 測定ID G-HS5YM8ZLV2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS5YM8ZLV2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS5YM8ZLV2');
+  </script>
+
+  <!-- Google Search Console 所有権確認 -->
+  <meta name="google-site-verification" content="soC5SoE3Riu4IZuzTICA-fnKDoNmDh6ZiA8ZC-GLr-A" />
+
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="../../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../../favicon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon-180.png">
+  <meta name="theme-color" content="#07080B">
+
+  <link rel="canonical" href="https://niwayukun-1234.github.io/works/call-desk/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
+  <meta property="og:url" content="https://niwayukun-1234.github.io/works/call-desk/">
+  <meta property="og:title" content="Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ">
+  <meta property="og:description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。">
+  <meta property="og:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Call Desk（AI 自動架電・テレアポツール） のキービジュアル">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ">
+  <meta name="twitter:description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。">
+  <meta name="twitter:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
+
+  <title>Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ</title>
+  <meta name="description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。 使用技術: TypeScript / Next.js / React / Tailwind CSS / Supabase / Claude API / Twilio Media Streams / Deepgram / ElevenLabs / OpenAI Embeddings。">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "Call Desk（AI 自動架電・テレアポツール）",
+    "description": "商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。",
+    "url": "https://niwayukun-1234.github.io/works/call-desk/",
+    "dateCreated": "2026",
+    "inLanguage": "ja",
+    "author": { "@type": "Person", "name": "丹羽優貴", "url": "https://niwayukun-1234.github.io/" },
+    "creator": { "@type": "Person", "name": "丹羽優貴" },
+    "keywords": "TypeScript / Next.js / React / Tailwind CSS / Supabase / Claude API / Twilio Media Streams / Deepgram / ElevenLabs / OpenAI Embeddings"
+  }
+  </script>
+  <script src="../../js/log-config.js" defer></script>
+  <script src="../../js/analytics.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <div class="ambient" id="ambient" aria-hidden="true">
+    <div class="ambient__still"></div>
+    <div class="ambient__layer ambient__layer--a"></div>
+    <div class="ambient__layer ambient__layer--b"></div>
+    <div class="ambient__grain"></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="../../index.html" aria-label="丹羽優貴 ポートフォリオ トップへ">
+        <span class="brand__mark">YUKI NIWA</span>
+        <span class="brand__sub">Portfolio / 2026</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span class="nav-toggle__bars"></span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="主要ナビゲーション">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../../index.html#works">Works</a></li>
+          <li><a class="nav__link" href="../../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../../index.html#skills">Skills</a></li>
+          <li><a class="nav__link" href="../../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page">
+    <main id="main" class="wrap detail">
+      <a class="breadcrumb" href="../../index.html#works">← 作品一覧へ戻る</a>
+
+      <p class="label">Work / 2026</p>
+      <h1 class="detail__title">Call Desk（AI 自動架電・テレアポツール）</h1>
+      <p class="detail__summary">商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。</p>
+
+      <dl class="detail__meta">
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Role</dt>
+          <dd class="detail__meta-val">設計・実装</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Year</dt>
+          <dd class="detail__meta-val">2026</dd>
+        </div>
+        <div class="detail__meta-item">
+          <dt class="detail__meta-key">Tech</dt>
+          <dd class="detail__meta-val"><ul class="tags"><li class="tag">TypeScript</li><li class="tag">Next.js</li><li class="tag">React</li><li class="tag">Tailwind CSS</li><li class="tag">Supabase</li><li class="tag">Claude API</li><li class="tag">Twilio Media Streams</li><li class="tag">Deepgram</li><li class="tag">ElevenLabs</li><li class="tag">OpenAI Embeddings</li></ul></dd>
+        </div>
+      </dl>
+
+      <div class="detail__links detail__links--top"><a class="btn btn--solid btn--launch btn--lg" href="https://niwayukun-1234.github.io/call-desk/" target="_blank" rel="noopener">Call Desk デモを開く<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a><a class="btn btn--ghost" href="https://niwayukun-1234.github.io/sales-ai/" target="_blank" rel="noopener">姉妹アプリ Sales Desk（AI 通話分析）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a><span class="detail__links-note">実際に触れます（新しいタブで開きます）</span></div>
+
+      <figure class="detail__hero reveal">
+        <img src="../../images/work-call-desk.jpg" alt="Call Desk（AI 自動架電・テレアポツール） のスクリーンショット" width="1200" height="675" loading="eager" decoding="async">
+      </figure>
+
+      <div class="detail__body">
+        <article class="detail-block reveal">
+          <h2 class="detail-block__key">01 / Challenge</h2>
+          <p class="detail-block__text">テレアポは件数をこなす必要がある一方で、断られ続ける負担が大きく、話し方も担当者ごとにばらつく。商材ごとの売れるトークを、誰でも同じ品質で大量の架電に使えるようにしたい。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="1">
+          <h2 class="detail-block__key">02 / Built</h2>
+          <p class="detail-block__text">利用者が商材と説明資料（テキスト・PDF）を登録すると、AIが資料・人の営業の通話分析・受注した通話・過去のAI架電の結果から、商材専用の台本（プレイブック）を作る。人が内容を確認して有効にすると、AIが架電リスト（ExcelやCSVをそのまま取り込み）に順番に電話をかけ、冒頭でAIであることと録音を告げたうえで、受付突破・ヒアリング・切り返し・日程調整まで会話する。相づちでは話を止めず、相手が話し始めたら止めて聞く。2回断られたら引き、「電話しないで」と言われたら架電停止リストに登録する。電話をかける前に、ブラウザ上で自分がお客様役になって声で試せるロールプレイ画面もある。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="2">
+          <h2 class="detail-block__key">03 / Stack</h2>
+          <p class="detail-block__text">Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミングとツール呼び出しで、日程提示・アポ登録・転送・資料検索などを実行）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データと認証は Supabase。通話は常時起動の Node.js ワーカーで処理する。</p>
+        </article>
+        <article class="detail-block reveal" data-delay="3">
+          <h2 class="detail-block__key">04 / Result</h2>
+          <p class="detail-block__text">デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（ホーム・架電キャンペーン・商材とAIの学習・ロールプレイ）を操作できます。スマホにも対応しています。デモのAIは台本どおりに進む簡易版で、実際の運用では Claude が応答します。</p>
+        </article>
+      </div>
+
+      <div class="detail__links"><a class="btn btn--solid btn--launch btn--lg" href="https://niwayukun-1234.github.io/call-desk/" target="_blank" rel="noopener">Call Desk デモを開く<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a><a class="btn btn--ghost" href="https://niwayukun-1234.github.io/sales-ai/" target="_blank" rel="noopener">姉妹アプリ Sales Desk（AI 通話分析）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></div>
+
+      <nav class="detail__nav" aria-label="作品間の移動">
+        <a href="../sales-ai/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          Sales Desk（AI 通話分析・営業管理ツール）
+        </a>
+        <a href="../univtap/">
+          ユニバーシティタップ（Uタップ）
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <div>
+          <span class="site-footer__name">丹羽優貴</span>
+          <span class="site-footer__name-en">YUKI NIWA</span>
+        </div>
+        <p class="site-footer__copy">© 2026 YUKI NIWA</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/main.js" defer></script>
+</body>
+</html>

@@ -122,7 +122,7 @@
     },
     {
       "slug": "sales-ai",
-      "title": "Sales Desk（AI分析付き BtoB 営業管理ツール）",
+      "title": "Sales Desk（AI 通話分析・営業管理ツール）",
       "summary": "営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。",
       "role": "設計・実装",
       "tech": [
@@ -146,13 +146,56 @@
         {
           "label": "Sales Desk デモ",
           "url": "https://niwayukun-1234.github.io/sales-ai/"
+        },
+        {
+          "label": "姉妹アプリ Call Desk（AI 自動架電）",
+          "url": "https://niwayukun-1234.github.io/call-desk/"
         }
       ],
       "body": {
         "challenge": "営業の成功・失敗が個人の感覚にとどまり、どの話し方が受注につながったのかをチームで共有・再現できない。",
         "built": "AIが通話録音を文字起こし（話者分離つき）し、受注・失注の要因、効果のあった発言、懸念への返し方を抽出。通話ごとに評価スコア・良かった点・改善点・次のアクションを提示する。分析結果は商材別に集計され、受注パターンの把握、AIによるトークスクリプト作成、過去の通話をもとに答えるナレッジ検索（RAG）に使われる。Zoom Phone の録音取り込みと Salesforce への活動記録にも対応。",
         "stack": "Next.js（App Router）/ React / TypeScript / Tailwind CSS。データと認証は Supabase（PostgreSQL・pgvector によるベクトル検索）。文字起こしは AssemblyAI、通話分析・フィードバック・スクリプト生成は Claude API、埋め込みは OpenAI Embeddings。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。",
-        "result": "このページのデモは、ログイン不要でサンプルデータの全画面（AI分析結果・受注パターン・スクリプト・外部連携）を操作できる静的版です。"
+        "result": "デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（AI分析結果・受注パターン・スクリプト・外部連携）を操作できます。スマホにも対応しています。AI 自動架電の Call Desk とは同じデータベースを共有する姉妹アプリです。"
+      }
+    },
+    {
+      "slug": "call-desk",
+      "title": "Call Desk（AI 自動架電・テレアポツール）",
+      "summary": "商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。",
+      "role": "設計・実装",
+      "tech": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Supabase",
+        "Claude API",
+        "Twilio Media Streams",
+        "Deepgram",
+        "ElevenLabs",
+        "OpenAI Embeddings"
+      ],
+      "year": 2026,
+      "thumbnail": {
+        "wide": "/images/work-call-desk.jpg",
+        "square": "/images/work-call-desk.jpg"
+      },
+      "links": [
+        {
+          "label": "Call Desk デモ",
+          "url": "https://niwayukun-1234.github.io/call-desk/"
+        },
+        {
+          "label": "姉妹アプリ Sales Desk（AI 通話分析）",
+          "url": "https://niwayukun-1234.github.io/sales-ai/"
+        }
+      ],
+      "body": {
+        "challenge": "テレアポは件数をこなす必要がある一方で、断られ続ける負担が大きく、話し方も担当者ごとにばらつく。商材ごとの売れるトークを、誰でも同じ品質で大量の架電に使えるようにしたい。",
+        "built": "利用者が商材と説明資料（テキスト・PDF）を登録すると、AIが資料・人の営業の通話分析・受注した通話・過去のAI架電の結果から、商材専用の台本（プレイブック）を作る。人が内容を確認して有効にすると、AIが架電リスト（ExcelやCSVをそのまま取り込み）に順番に電話をかけ、冒頭でAIであることと録音を告げたうえで、受付突破・ヒアリング・切り返し・日程調整まで会話する。相づちでは話を止めず、相手が話し始めたら止めて聞く。2回断られたら引き、「電話しないで」と言われたら架電停止リストに登録する。電話をかける前に、ブラウザ上で自分がお客様役になって声で試せるロールプレイ画面もある。",
+        "stack": "Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミングとツール呼び出しで、日程提示・アポ登録・転送・資料検索などを実行）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データと認証は Supabase。通話は常時起動の Node.js ワーカーで処理する。",
+        "result": "デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（ホーム・架電キャンペーン・商材とAIの学習・ロールプレイ）を操作できます。スマホにも対応しています。デモのAIは台本どおりに進む簡易版で、実際の運用では Claude が応答します。"
       }
     }
   ]

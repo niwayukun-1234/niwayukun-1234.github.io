@@ -87,6 +87,42 @@ function thumbMarkup(work) {
   );
 }
 
+/** 作品詳細の「できること」リスト（works.json の features 配列）。 */
+function featuresMarkup(work) {
+  const items = work.features || [];
+  if (!items.length) return "";
+  return '<ul class="detail-features">' + items.map((f) => "<li>" + esc(f) + "</li>").join("") + "</ul>";
+}
+
+/**
+ * 画面ギャラリー（works.json の gallery 配列）。
+ * frame: "phone"（縦長のスマホ画面）/ "wide"（PC 画面）。クリックで原寸を開く。
+ */
+function galleryMarkup(work) {
+  const shots = work.gallery || [];
+  if (!shots.length) return "";
+  const frame = shots[0].frame === "phone" ? "phone" : "wide";
+  const figs = shots
+    .map((g) => {
+      const src = "../../" + String(g.src).replace(/^\.?\//, "");
+      return (
+        '<figure class="shot shot--' + frame + '">' +
+        '<a class="shot__frame" href="' + esc(src) + '" target="_blank" rel="noopener" aria-label="' + esc(g.caption) + '（画像を拡大）">' +
+        '<img src="' + esc(src) + '" alt="' + esc(g.caption) + '" loading="lazy" decoding="async">' +
+        "</a>" +
+        '<figcaption class="shot__caption">' + esc(g.caption) + "</figcaption>" +
+        "</figure>"
+      );
+    })
+    .join("");
+  return (
+    '<section class="detail-gallery reveal" aria-labelledby="gallery-title">' +
+    '<h2 class="detail-block__key" id="gallery-title">Screens · 実際の画面</h2>' +
+    '<div class="detail-gallery__grid detail-gallery__grid--' + frame + '">' + figs + "</div>" +
+    "</section>"
+  );
+}
+
 const EXT_ICON =
   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" ' +
   'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
@@ -145,6 +181,8 @@ works.forEach((work, i) => {
     .replaceAll("{{OG_IMAGE}}", esc(ogImageFor(work.slug)))
     .replaceAll("{{JSONLD_TYPE}}", jsonLdType(work))
     .replaceAll("{{THUMB}}", thumbMarkup(work))
+    .replaceAll("{{FEATURES}}", featuresMarkup(work))
+    .replaceAll("{{GALLERY}}", galleryMarkup(work))
     .replaceAll("{{LINKS_TOP}}", linksMarkup(work, "detail__links--top"))
     .replaceAll("{{LINKS}}", linksMarkup(work))
     .replaceAll("{{PREV_SLUG}}", esc(prev.slug))

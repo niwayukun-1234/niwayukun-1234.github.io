@@ -802,6 +802,54 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: var(--lh-body);
   color: var(--text-mid);
 }
+.detail__body--after { margin-top: var(--s-8); }
+
+/* 作ったもの：できることの箇条書き */
+.detail-features {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+  max-width: var(--measure);
+}
+.detail-features li {
+  position: relative;
+  padding-left: var(--s-5);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-mid);
+}
+.detail-features li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* 実際の画面ギャラリー */
+.detail-gallery { margin-top: var(--s-16); }
+.detail-gallery__grid { display: grid; gap: var(--s-6); }
+.detail-gallery__grid--phone { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+.detail-gallery__grid--wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.shot { display: flex; flex-direction: column; gap: var(--s-3); margin: 0; }
+.shot__frame {
+  display: block;
+  overflow: hidden;
+  border: var(--border-face);
+  border-radius: 16px;
+  background: var(--surface-1);
+  transition: border-color var(--dur-ui) var(--ease-out);
+}
+.shot__frame:hover, .shot__frame:focus-visible { border-color: rgba(255, 255, 255, 0.24); }
+.shot__frame img { display: block; width: 100%; height: auto; }
+.shot--phone .shot__frame { border-radius: 22px; }
+.shot--phone .shot__frame img { aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
+.shot--wide .shot__frame img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.shot__caption { font-size: 13px; line-height: 1.6; color: var(--text-mid); }
+
 .detail__links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); margin-top: var(--s-12); }
 .detail__links--top { margin-top: var(--s-8); margin-bottom: var(--s-4); }
 .detail__links-note { font-size: 13px; color: var(--text-mid); }
@@ -912,6 +960,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .skill-row { grid-template-columns: minmax(0, 1fr); gap: var(--s-3); padding: var(--s-5) 0; }
   .contact__grid { grid-template-columns: minmax(0, 1fr); }
   .detail__body { grid-template-columns: minmax(0, 1fr); }
+  .detail-gallery__grid--wide { grid-template-columns: minmax(0, 1fr); }
+  .detail-gallery__grid--phone { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); }
   .section-head { margin-bottom: var(--s-10); }
   .site-footer__inner { align-items: flex-start; }
 }

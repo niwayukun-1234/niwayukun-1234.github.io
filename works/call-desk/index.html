@@ -30,7 +30,7 @@
   <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
   <meta property="og:url" content="https://niwayukun-1234.github.io/works/call-desk/">
   <meta property="og:title" content="Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ">
-  <meta property="og:description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。">
+  <meta property="og:description" content="商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。">
   <meta property="og:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -38,11 +38,11 @@
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ">
-  <meta name="twitter:description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。">
+  <meta name="twitter:description" content="商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。">
   <meta name="twitter:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
 
   <title>Call Desk（AI 自動架電・テレアポツール） | 丹羽優貴のポートフォリオ</title>
-  <meta name="description" content="商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。 使用技術: TypeScript / Next.js / React / Tailwind CSS / Supabase / Claude API / Twilio Media Streams / Deepgram / ElevenLabs / OpenAI Embeddings。">
+  <meta name="description" content="商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。 使用技術: TypeScript / Next.js / React / Tailwind CSS / Supabase / Claude API / Twilio Media Streams / Deepgram / ElevenLabs / OpenAI Embeddings。">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     "name": "Call Desk（AI 自動架電・テレアポツール）",
-    "description": "商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。",
+    "description": "商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。",
     "url": "https://niwayukun-1234.github.io/works/call-desk/",
     "dateCreated": "2026",
     "inLanguage": "ja",
@@ -102,7 +102,7 @@
 
       <p class="label">Work / 2026</p>
       <h1 class="detail__title">Call Desk（AI 自動架電・テレアポツール）</h1>
-      <p class="detail__summary">商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。</p>
+      <p class="detail__summary">商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。</p>
 
       <dl class="detail__meta">
         <div class="detail__meta-item">
@@ -127,20 +127,26 @@
 
       <div class="detail__body">
         <article class="detail-block reveal">
-          <h2 class="detail-block__key">01 / Challenge</h2>
-          <p class="detail-block__text">テレアポは件数をこなす必要がある一方で、断られ続ける負担が大きく、話し方も担当者ごとにばらつく。商材ごとの売れるトークを、誰でも同じ品質で大量の架電に使えるようにしたい。</p>
+          <h2 class="detail-block__key">01 / Challenge · 解決したいこと</h2>
+          <p class="detail-block__text">テレアポは件数が必要なのに、断られ続ける負担が大きく、話し方も人によってばらつく。商材ごとの「売れるトーク」を、誰でも同じ品質でたくさんの架電に使えるようにしたい。</p>
         </article>
         <article class="detail-block reveal" data-delay="1">
-          <h2 class="detail-block__key">02 / Built</h2>
-          <p class="detail-block__text">利用者が商材と説明資料（テキスト・PDF）を登録すると、AIが資料・人の営業の通話分析・受注した通話・過去のAI架電の結果から、商材専用の台本（プレイブック）を作る。人が内容を確認して有効にすると、AIが架電リスト（ExcelやCSVをそのまま取り込み）に順番に電話をかけ、冒頭でAIであることと録音を告げたうえで、受付突破・ヒアリング・切り返し・日程調整まで会話する。相づちでは話を止めず、相手が話し始めたら止めて聞く。2回断られたら引き、「電話しないで」と言われたら架電停止リストに登録する。電話をかける前に、ブラウザ上で自分がお客様役になって声で試せるロールプレイ画面もある。</p>
+          <h2 class="detail-block__key">02 / Built · 作ったもの</h2>
+          <p class="detail-block__text">商材と説明資料を登録すると、AIがその商材専用の台本（プレイブック）を作る。人が中身を確認して有効にすると、AIが架電リストに順番に電話をかけ、ヒアリング・切り返し・日程調整まで自分で会話する。</p>
+          <ul class="detail-features"><li>台本づくり：説明資料（テキスト・PDF）、人の営業の通話分析、受注した通話、過去のAI架電の結果から、商材専用の台本をAIが作成</li><li>架電リストは Excel や CSV をそのまま取り込み、時間帯・最大回数・同時に話す本数を決めて自動で架電</li><li>冒頭でAIであることと録音を伝え、相づちでは止まらず、相手が話し始めたら止まって聞く</li><li>2回断られたら引き下がり、「電話しないで」と言われた番号は架電停止リストに登録</li><li>ロールプレイ：電話をかける前に、自分がお客様役になって声か文字でAIと話して試せる</li></ul>
         </article>
-        <article class="detail-block reveal" data-delay="2">
-          <h2 class="detail-block__key">03 / Stack</h2>
-          <p class="detail-block__text">Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミングとツール呼び出しで、日程提示・アポ登録・転送・資料検索などを実行）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データと認証は Supabase。通話は常時起動の Node.js ワーカーで処理する。</p>
+      </div>
+
+      <section class="detail-gallery reveal" aria-labelledby="gallery-title"><h2 class="detail-block__key" id="gallery-title">Screens · 実際の画面</h2><div class="detail-gallery__grid detail-gallery__grid--wide"><figure class="shot shot--wide"><a class="shot__frame" href="../../images/works/call-desk/01-home.jpg" target="_blank" rel="noopener" aria-label="ホーム。架電数・接続率・アポ数と、直近の通話の要約を表示（画像を拡大）"><img src="../../images/works/call-desk/01-home.jpg" alt="ホーム。架電数・接続率・アポ数と、直近の通話の要約を表示" loading="lazy" decoding="async"></a><figcaption class="shot__caption">ホーム。架電数・接続率・アポ数と、直近の通話の要約を表示</figcaption></figure><figure class="shot shot--wide"><a class="shot__frame" href="../../images/works/call-desk/02-campaign.jpg" target="_blank" rel="noopener" aria-label="架電キャンペーン。リストの取り込みと、1件ずつの架電結果・次の予定（画像を拡大）"><img src="../../images/works/call-desk/02-campaign.jpg" alt="架電キャンペーン。リストの取り込みと、1件ずつの架電結果・次の予定" loading="lazy" decoding="async"></a><figcaption class="shot__caption">架電キャンペーン。リストの取り込みと、1件ずつの架電結果・次の予定</figcaption></figure><figure class="shot shot--wide"><a class="shot__frame" href="../../images/works/call-desk/03-agent.jpg" target="_blank" rel="noopener" aria-label="商材とAIの学習。資料と通話データから台本を作り、確認してから有効にする（画像を拡大）"><img src="../../images/works/call-desk/03-agent.jpg" alt="商材とAIの学習。資料と通話データから台本を作り、確認してから有効にする" loading="lazy" decoding="async"></a><figcaption class="shot__caption">商材とAIの学習。資料と通話データから台本を作り、確認してから有効にする</figcaption></figure><figure class="shot shot--wide"><a class="shot__frame" href="../../images/works/call-desk/04-roleplay.jpg" target="_blank" rel="noopener" aria-label="ロールプレイ。自分がお客様役になって、AIの話し方を事前に確かめる（画像を拡大）"><img src="../../images/works/call-desk/04-roleplay.jpg" alt="ロールプレイ。自分がお客様役になって、AIの話し方を事前に確かめる" loading="lazy" decoding="async"></a><figcaption class="shot__caption">ロールプレイ。自分がお客様役になって、AIの話し方を事前に確かめる</figcaption></figure></div></section>
+
+      <div class="detail__body detail__body--after">
+        <article class="detail-block reveal">
+          <h2 class="detail-block__key">03 / Stack · 使った技術</h2>
+          <p class="detail-block__text">画面は Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミング応答と、日程提示・アポ登録・担当者への転送・資料検索などのツール呼び出し）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データとログインは Supabase で、通話は常時起動の Node.js ワーカーが処理する。</p>
         </article>
-        <article class="detail-block reveal" data-delay="3">
-          <h2 class="detail-block__key">04 / Result</h2>
-          <p class="detail-block__text">デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（ホーム・架電キャンペーン・商材とAIの学習・ロールプレイ）を操作できます。スマホにも対応しています。デモのAIは台本どおりに進む簡易版で、実際の運用では Claude が応答します。</p>
+        <article class="detail-block reveal" data-delay="1">
+          <h2 class="detail-block__key">04 / Result · 成果と工夫</h2>
+          <p class="detail-block__text">ログイン画面の「ログインせずにゲストとして使う」から、サンプルデータの全画面を誰でも操作できます（スマホ対応）。デモのAIは台本どおりに進む簡易版で、本番では Claude が応答します。Sales Desk と同じデータベースを使う姉妹アプリです。</p>
         </article>
       </div>
 

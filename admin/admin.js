@@ -133,7 +133,7 @@
     rows.forEach(function (r) {
       visitors[r.visitor_id] = 1;
       var s = sessions[r.session_id] || (sessions[r.session_id] = {
-        id: r.session_id, first: r.created_at, last: r.created_at, device: r.device, ref: null,
+        id: r.session_id, first: r.created_at, last: r.created_at, device: r.device, ref: null, src: null,
         pages: {}, top: false, scroll: 0, sections: {}, lastSection: null, lastSectionAt: ""
       });
       if (r.created_at < s.first) s.first = r.created_at;
@@ -143,6 +143,7 @@
         s.pages[r.path] = 1;
         if (r.path === "/" || r.path === "/index.html") s.top = true;
         if (r.referrer && !s.ref) s.ref = r.referrer;
+        if (r.value && !s.src) s.src = r.value;
       } else if (r.type === "scroll" && (r.path === "/" || r.path === "/index.html")) {
         s.scroll = Math.max(s.scroll, Number(r.value) || 0);
       } else if (r.type === "section") {
@@ -194,10 +195,13 @@
       return [m + "%", n, tops.length];
     }), true);
 
-    // 流入元
+    // 流入元（決めた5つは0件でも常に表示し、それ以外は多い順に続ける）
     var refs = {};
-    list.forEach(function (s) { var k = s.ref || "直接・不明"; refs[k] = (refs[k] || 0) + 1; });
-    bars("refs", top(refs, 8).map(function (x) { return [x[0], x[1], list.length]; }), false);
+    list.forEach(function (s) { var k = sourceOf(s); refs[k] = (refs[k] || 0) + 1; });
+    var fixed = MAIN_SOURCES.map(function (k) { return [k, refs[k] || 0, list.length]; });
+    var others = top(refs, 20).filter(function (x) { return MAIN_SOURCES.indexOf(x[0]) < 0; }).slice(0, 5)
+      .map(function (x) { return [x[0], x[1], list.length]; });
+    bars("refs", fixed.concat(others), false);
 
     // 押されたリンク
     var clicks = {};
@@ -209,7 +213,7 @@
     // 最近の訪問
     list.sort(function (a, b) { return a.first < b.first ? 1 : -1; });
     $("recent").innerHTML = list.slice(0, 50).map(function (s) {
-      return "<tr><td>" + esc(jstTime(s.first)) + "</td><td>" + esc(DEVICE_NAME[s.device] || s.device || "") + "</td><td>" + esc(s.ref || "直接・不明") +
+      return "<tr><td>" + esc(jstTime(s.first)) + "</td><td>" + esc(DEVICE_NAME[s.device] || s.device || "") + "</td><td>" + esc(sourceOf(s)) +
         "</td><td>" + Object.keys(s.pages).length + "</td><td>" + (s.top ? s.scroll + "%" : "–") + "</td><td>" + esc(SECTION_NAME[s.lastSection] || s.lastSection || "–") + "</td></tr>";
     }).join("") || '<tr><td colspan="6" class="empty">まだありません</td></tr>';
   }
@@ -217,6 +221,21 @@
   function top(obj, n) {
     return Object.keys(obj).map(function (k) { return [k, obj[k]]; }).sort(function (a, b) { return b[1] - a[1]; }).slice(0, n);
   }
+  // 流入元の名前。専用リンクの目印（?utm_source=）を優先し、なければ参照元のドメインから判定する
+  var MAIN_SOURCES = ["Instagram", "Facebook", "X", "名刺", "QRコード"];
+  var SOURCE_NAME = {
+    instagram: "Instagram", ig: "Instagram", facebook: "Facebook", fb: "Facebook",
+    x: "X", twitter: "X", card: "名刺", meishi: "名刺", qr: "QRコード"
+  };
+  function sourceOf(s) {
+    if (s.src) return SOURCE_NAME[s.src] || s.src;
+    var h = String(s.ref || "").replace(/^www\./, "");
+    if (/(^|\.)instagram\.com$/.test(h)) return "Instagram";
+    if (/(^|\.)facebook\.com$/.test(h) || h === "fb.me") return "Facebook";
+    if (/^(t\.co|x\.com|twitter\.com|mobile\.twitter\.com)$/.test(h)) return "X";
+    return h || "直接・不明";
+  }
+
   function linkName(href) {
     if (/^mailto:/.test(href)) return "メール";
     var m = href.match(/works\/([^/]+)/); if (m) return "作品ページ：" + m[1];

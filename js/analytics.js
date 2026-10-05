@@ -6,6 +6,7 @@
  *   2) Google アナリティクス（<head> の gtag）… 同じイベントを送る
  *  記録するもの
  *   - pageview … ページを開いた（流入元・スマホ/PC）
+ *                流入元リンクの ?utm_source=instagram / facebook / x / card（名刺）/ qr を value に入れる
  *   - scroll   … 25 / 50 / 75 / 100% までスクロールした（1回ずつ）
  *   - section  … 各セクションが画面に入った（1回ずつ）
  *   - click    … 作品・外部リンク・連絡先のリンクを押した
@@ -72,7 +73,13 @@
       if (u.host !== location.host) ref = u.host;
     }
   } catch (e) {}
-  log("pageview", null, ref);
+  // 流入元リンクの目印（?utm_source=instagram など。?from= でも可）
+  var src = "";
+  try {
+    var q = new URLSearchParams(location.search);
+    src = (q.get("utm_source") || q.get("from") || "").toLowerCase().slice(0, 40);
+  } catch (e) {}
+  log("pageview", src || null, ref);
 
   // スクロールの到達率
   var marks = [25, 50, 75, 100];

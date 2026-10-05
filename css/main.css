@@ -990,7 +990,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   display: grid;
   place-items: center;
   background: var(--bg-base);
-  pointer-events: none;
+  touch-action: none; /* 演出中のタップ・スクロールは幕で受け止める */
   animation: intro-curtain 2.3s cubic-bezier(0.7, 0, 0.2, 1) forwards;
 }
 .intro__logo {

@@ -37,26 +37,16 @@
     if (!root.classList.contains("intro-on")) {
       intro.remove();
     } else {
-      var introSound = null;
       var endIntro = function () { if (intro.parentNode) intro.remove(); };
-      var skip = function () {
-        if (introSound) introSound.stop();
-        root.classList.remove("intro-on");
-        endIntro();
-        window.removeEventListener("pointerdown", skip);
-        window.removeEventListener("keydown", skip);
-      };
+      // 演出中に画面を触っても止めない（最後まで流す。触った操作は幕が受け止めて下のページには届かない）
+      intro.addEventListener("wheel", function (e) { e.preventDefault(); }, { passive: false });
       var play = function (withSound) {
-        if (withSound) introSound = playIntroSound();
+        if (withSound) playIntroSound();
         root.classList.remove("intro-wait");
         intro.addEventListener("animationend", function (e) {
           if (e.target === intro) endIntro();
         });
         setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
-        setTimeout(function () {
-          window.addEventListener("pointerdown", skip, { once: true });
-          window.addEventListener("keydown", skip, { once: true });
-        }, 300);
       };
       if (root.classList.contains("intro-wait")) {
         // アプリ内ブラウザ：ボタンを押した瞬間（＝操作の中）なら音を鳴らせる

@@ -37,12 +37,8 @@
     if (!root.classList.contains("intro-on")) {
       intro.remove();
     } else {
-      var introSound = playIntroSound();
+      var introSound = null;
       var endIntro = function () { if (intro.parentNode) intro.remove(); };
-      intro.addEventListener("animationend", function (e) {
-        if (e.target === intro) endIntro();
-      });
-      setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
       var skip = function () {
         if (introSound) introSound.stop();
         root.classList.remove("intro-on");
@@ -50,8 +46,31 @@
         window.removeEventListener("pointerdown", skip);
         window.removeEventListener("keydown", skip);
       };
-      window.addEventListener("pointerdown", skip, { once: true });
-      window.addEventListener("keydown", skip, { once: true });
+      var play = function (withSound) {
+        if (withSound) introSound = playIntroSound();
+        root.classList.remove("intro-wait");
+        intro.addEventListener("animationend", function (e) {
+          if (e.target === intro) endIntro();
+        });
+        setTimeout(endIntro, 3000); /* animationend が来ない環境の保険 */
+        setTimeout(function () {
+          window.addEventListener("pointerdown", skip, { once: true });
+          window.addEventListener("keydown", skip, { once: true });
+        }, 300);
+      };
+      if (root.classList.contains("intro-wait")) {
+        // アプリ内ブラウザ：ボタンを押した瞬間（＝操作の中）なら音を鳴らせる
+        var buttons = intro.querySelectorAll("[data-intro-sound]");
+        Array.prototype.forEach.call(buttons, function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            play(btn.getAttribute("data-intro-sound") === "on");
+          }, { once: true });
+        });
+        if (buttons[0]) buttons[0].focus({ preventScroll: true });
+      } else {
+        play(true);
+      }
     }
   }
 

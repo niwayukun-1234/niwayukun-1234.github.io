@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fagent\u002F[productId]","\u002Fcalls\u002F[id]","\u002Fcampaigns\u002F[id]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

@@ -3,16 +3,17 @@
     {
       "slug": "univtap",
       "title": "ユニバーシティタップ（Uタップ）",
-      "summary": "教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。",
+      "summary": "教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。",
       "role": "代表・企画",
       "tech": [
-        "React",
-        "JavaScript",
-        "Tailwind CSS",
+        "React 19",
+        "TanStack Start",
+        "TypeScript",
+        "Tailwind CSS v4",
         "shadcn/ui",
-        "TanStack Router",
         "Supabase",
-        "PostgreSQL"
+        "PostgreSQL",
+        "Cloudflare Workers"
       ],
       "year": 2026,
       "thumbnail": {
@@ -26,11 +27,46 @@
         }
       ],
       "body": {
-        "challenge": "大人数の学内コミュニティでは、待ち合わせや居場所の共有が口頭・チャット依存で非効率。（デモ）",
-        "built": "教室にチェックインして居場所を共有する学内向けSNS。現在の居場所・入退室履歴・時間割・フレンドを備え、GPSを常時使わずチェックイン方式でプライバシーに配慮。（デモ）",
-        "stack": "React + JavaScript。UIは Tailwind CSS + shadcn/ui系、ルーティングは TanStack Router系、バックエンドは Supabase（PostgreSQL / Auth）。ホスティングは Lovable。",
-        "result": "学内限定の安心設計で利用拡大中。具体的な数値は本人記入待ち。（デモ）"
-      }
+        "challenge": "大学では「いまどこにいる？」「次の空きコマいつ？」を毎回チャットで聞き合っていて、待ち合わせや合流に手間がかかる。一方で、GPSで常に位置を見られるのは抵抗がある。",
+        "built": "キャンパス → 館 → 階 → 教室を選んで「入室」すると、いまいる場所とひとことメモがフレンドに共有されるアプリ。GPSは使わず、自分で入室したときだけ共有されるので、見せたくないときは見せなくていい。",
+        "stack": "React 19 + TanStack Start（TypeScript）、Tailwind CSS v4 + shadcn/ui。認証・データベース・ファイル保存・リアルタイム更新は Supabase（Lovable Cloud）。配信は Cloudflare Workers。",
+        "result": "同志社大学の4キャンパスに対応し、館45件・教室2,450件の教室データを登録済み。「ゲストで試す」からデモのフレンド・時間割・チャットで誰でも体験できます（下の画面はゲスト用のデモデータです）。"
+      },
+      "features": [
+        "教室を選んで入室すると、現在地とメモをフレンドに共有。退室や別の教室への入室で自動で更新",
+        "「場所」画面で、入室中のフレンドを教室ごとにまとめて確認",
+        "フレンドはID・招待リンク・QRコードで追加。居場所と履歴を見せるかはフレンドごとに設定",
+        "個別・グループチャット（ファイル送信、未読表示つき）",
+        "月〜土・1〜7限の時間割を色分けして管理。画像保存とカレンダー（iCalendar）書き出しに対応",
+        "ホーム画面に追加して使えて（PWA）、メッセージの通知にも対応"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/univtap/01-checkin.jpg",
+          "caption": "教室を選んで入室。いまの居場所とメモをフレンドに共有",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/02-places.jpg",
+          "caption": "入室中のフレンドを教室ごとに一覧で確認",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/03-friend.jpg",
+          "caption": "フレンドの現在地と、フレンドごとの公開設定",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/04-timetable.jpg",
+          "caption": "授業・バイト・サークルを色分けした時間割",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/05-chat.jpg",
+          "caption": "フレンドとの個別チャット・グループチャット",
+          "frame": "phone"
+        }
+      ]
     },
     {
       "slug": "pachitango",

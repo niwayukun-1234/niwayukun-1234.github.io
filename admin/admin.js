@@ -222,10 +222,10 @@
     return Object.keys(obj).map(function (k) { return [k, obj[k]]; }).sort(function (a, b) { return b[1] - a[1]; }).slice(0, n);
   }
   // 流入元の名前。専用リンクの目印（?utm_source=）を優先し、なければ参照元のドメインから判定する
-  var MAIN_SOURCES = ["Instagram", "Facebook", "X", "名刺", "QRコード"];
+  var MAIN_SOURCES = ["Instagram", "Facebook", "X", "LINE", "名刺", "QRコード"];
   var SOURCE_NAME = {
     instagram: "Instagram", ig: "Instagram", facebook: "Facebook", fb: "Facebook",
-    x: "X", twitter: "X", card: "名刺", meishi: "名刺", qr: "QRコード"
+    x: "X", twitter: "X", line: "LINE", card: "名刺", meishi: "名刺", qr: "QRコード"
   };
   function sourceOf(s) {
     if (s.src) return SOURCE_NAME[s.src] || s.src;
@@ -233,6 +233,7 @@
     if (/(^|\.)instagram\.com$/.test(h)) return "Instagram";
     if (/(^|\.)facebook\.com$/.test(h) || h === "fb.me") return "Facebook";
     if (/^(t\.co|x\.com|twitter\.com|mobile\.twitter\.com)$/.test(h)) return "X";
+    if (/(^|\.)line\.me$/.test(h) || h === "lin.ee") return "LINE";
     return h || "直接・不明";
   }
 

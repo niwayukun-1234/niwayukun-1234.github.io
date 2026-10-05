@@ -3,16 +3,17 @@
     {
       "slug": "univtap",
       "title": "ユニバーシティタップ（Uタップ）",
-      "summary": "教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。",
+      "summary": "教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。",
       "role": "代表・企画",
       "tech": [
-        "React",
-        "JavaScript",
-        "Tailwind CSS",
+        "React 19",
+        "TanStack Start",
+        "TypeScript",
+        "Tailwind CSS v4",
         "shadcn/ui",
-        "TanStack Router",
         "Supabase",
-        "PostgreSQL"
+        "PostgreSQL",
+        "Cloudflare Workers"
       ],
       "year": 2026,
       "thumbnail": {
@@ -26,21 +27,58 @@
         }
       ],
       "body": {
-        "challenge": "大人数の学内コミュニティでは、待ち合わせや居場所の共有が口頭・チャット依存で非効率。（デモ）",
-        "built": "教室にチェックインして居場所を共有する学内向けSNS。現在の居場所・入退室履歴・時間割・フレンドを備え、GPSを常時使わずチェックイン方式でプライバシーに配慮。（デモ）",
-        "stack": "React + JavaScript。UIは Tailwind CSS + shadcn/ui系、ルーティングは TanStack Router系、バックエンドは Supabase（PostgreSQL / Auth）。ホスティングは Lovable。",
-        "result": "学内限定の安心設計で利用拡大中。具体的な数値は本人記入待ち。（デモ）"
-      }
+        "challenge": "大学では「いまどこにいる？」「次の空きコマいつ？」を毎回チャットで聞き合っていて、待ち合わせや合流に手間がかかる。一方で、GPSで常に位置を見られるのは抵抗がある。",
+        "built": "キャンパス → 館 → 階 → 教室を選んで「入室」すると、いまいる場所とひとことメモがフレンドに共有されるアプリ。GPSは使わず、自分で入室したときだけ共有されるので、見せたくないときは見せなくていい。",
+        "stack": "React 19 + TanStack Start（TypeScript）、Tailwind CSS v4 + shadcn/ui。認証・データベース・ファイル保存・リアルタイム更新は Supabase（Lovable Cloud）。配信は Cloudflare Workers。",
+        "result": "同志社大学の4キャンパスに対応し、館45件・教室2,450件の教室データを登録済み。「ゲストで試す」からデモのフレンド・時間割・チャットで誰でも体験できます（下の画面はゲスト用のデモデータです）。"
+      },
+      "features": [
+        "教室を選んで入室すると、現在地とメモをフレンドに共有。退室や別の教室への入室で自動で更新",
+        "「場所」画面で、入室中のフレンドを教室ごとにまとめて確認",
+        "フレンドはID・招待リンク・QRコードで追加。居場所と履歴を見せるかはフレンドごとに設定",
+        "個別・グループチャット（ファイル送信、未読表示つき）",
+        "月〜土・1〜7限の時間割を色分けして管理。画像保存とカレンダー（iCalendar）書き出しに対応",
+        "ホーム画面に追加して使えて（PWA）、メッセージの通知にも対応"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/univtap/01-checkin.jpg",
+          "caption": "教室を選んで入室。いまの居場所とメモをフレンドに共有",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/02-places.jpg",
+          "caption": "入室中のフレンドを教室ごとに一覧で確認",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/03-friend.jpg",
+          "caption": "フレンドの現在地と、フレンドごとの公開設定",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/04-timetable.jpg",
+          "caption": "授業・バイト・サークルを色分けした時間割",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/univtap/05-chat.jpg",
+          "caption": "フレンドとの個別チャット・グループチャット",
+          "frame": "phone"
+        }
+      ]
     },
     {
       "slug": "pachitango",
       "title": "パチ単語（パチンコ演出の英単語アプリ）",
-      "summary": "パチンコの演出で正誤を体感する、モバイル向け英単語アプリ。",
+      "summary": "英単語クイズに正解すると、パチンコの大当たりのような全画面演出が始まるスマホ向け英単語アプリ。「当たる気持ちよさ」で単語の反復を続けられるようにした。",
       "role": "設計・実装",
       "tech": [
+        "React 19",
         "TypeScript",
-        "React",
-        "CSS Animations"
+        "Vite",
+        "CSS Animations",
+        "localStorage"
       ],
       "year": 2026,
       "thumbnail": {
@@ -54,16 +92,49 @@
         }
       ],
       "body": {
-        "challenge": "英単語の暗記が単調で続かない。（デモ）",
-        "built": "正解・不正解をパチンコの全画面演出で表現し、報酬感で反復を促すモバイルアプリ。所持玉・打ち出し速度などのUIも再現。（デモ）",
-        "stack": "TypeScript / React。演出は CSS アニメーション中心で、1.5秒程度の全画面演出。",
-        "result": "演出で暗記の継続を後押し。具体的な数値は本人記入待ち。（デモ）"
-      }
+        "challenge": "英単語の暗記は単調で、やる気が続かない。一方でゲームやパチンコの演出には「もう1回」と思わせる力がある。その気持ちよさを単語の反復に使えないかと考えた。",
+        "built": "4択の英単語クイズに、パチンコ風の演出を組み合わせたWebアプリ。正解すると全画面の大当たり演出で玉が増え、間違えると「失敗」演出で玉が減る。連続正解を続けると「確変」に入り、BGMと演出がさらに派手になる。",
+        "stack": "React 19 + TypeScript + Vite。演出は CSS アニメーションが中心。学習の記録はブラウザの localStorage に保存するため、サーバーはなし。GitHub Pages で公開している。",
+        "result": "スマホのブラウザですぐに遊べます。演出のテンポを崩さないよう、1問6秒の制限時間と短い全画面演出を組み合わせ、BGM は画面を見ているときだけ流れるようにしました。"
+      },
+      "features": [
+        "しっかり勉強：1回10問・1問6秒の4択クイズ。正解すると「10玉×連続正解数」の玉がもらえる",
+        "連続正解で「確変」に突入。専用BGM・豪華な演出・ボーナス玉",
+        "サクッと勉強：パチンコ台の画面で、PUSHを押すたびに英単語クイズを1問出題（オート回転・打ち出し速度の調整つき）",
+        "リザルト画面（正解率・スコア・ランク）、単語図鑑、間違えた単語の復習、英単語の読み上げ"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/pachitango/01-start.jpg",
+          "caption": "スタート画面。パチンコホールの世界観で「はじめる」",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/pachitango/02-question.jpg",
+          "caption": "英単語の4択クイズ。1問6秒の制限時間つき",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/pachitango/03-correct.jpg",
+          "caption": "正解すると全画面の大当たり演出で玉が増える(3連続正解)",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/pachitango/04-miss.jpg",
+          "caption": "不正解・時間切れは「失敗」演出で玉が減る",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/pachitango/05-pachinko.jpg",
+          "caption": "パチンコモード。1回転ごとに英単語クイズを1問出題",
+          "frame": "phone"
+        }
+      ]
     },
     {
       "slug": "niwa-lp",
       "title": "BeEngineer（中高生向けプログラミング教室）LP",
-      "summary": "問い合わせまでの導線を1ページに再設計した LP。",
+      "summary": "中高生向けプログラミング教室 BeEngineer の、無料体験・講座への申し込みを集めるための1ページのLP。どこまで読んでも、すぐ申し込みフォームに飛べる構成にした。",
       "role": "設計・実装",
       "tech": [
         "HTML",
@@ -82,16 +153,45 @@
         }
       ],
       "body": {
-        "challenge": "教室の魅力は伝わるのに、申込ボタンまでが遠く、問い合わせに至りにくい。（デモ）",
-        "built": "FV → 悩み → カリキュラム → 受講者の声 → 料金 → FAQ → 申込フォームを1ページに再構成し、各所に申込導線を配置。（デモ）",
-        "stack": "HTML / CSS / JavaScript で手書き。画像は軽量化、モバイルファーストのレスポンシブ。",
-        "result": "申込フォームまでのスクロール距離を短縮。個人制作のため計測値は未取得。（デモ）"
-      }
+        "challenge": "教室の魅力は伝わっていても、申し込みボタンまでが遠く、読み進めた人が問い合わせまでたどり着きにくい。中高生と保護者の両方が知りたいこと（内容・日程・料金・不安）も1ページで答えたい。",
+        "built": "「悩み → 得られること → 選ばれる理由 → カリキュラム → 受講生の声 → 日程と料金 → よくある質問 → 申し込み」の順に、読む人の疑問に答えていく1ページを作った。ヘッダー・最初の画面・ページの途中2か所に申し込みボタンを置いている。",
+        "stack": "フレームワークを使わず HTML / CSS / JavaScript を手書き。レスポンシブ対応（1120・1024・768px で切り替え）で、スマホではハンバーガーメニューになる。favicon と SNS 共有画像は BeEngineer の「B」ロゴから作成。",
+        "result": "GitHub Pages で公開中。申し込みフォームは見た目と切り替えまでで、送信先にはまだつないでいません。同じページを別の構成で試した試作版（test.html）もリポジトリに残しています。"
+      },
+      "features": [
+        "受講生の声が2段で逆向きに流れ続ける、つなぎ目の見えないループ表示",
+        "スイッチひとつで「無料体験」と「講座」の日程・料金を切り替え",
+        "校舎タブで住所・アクセス・電話番号・Googleマップが切り替わる",
+        "よくある質問はタップで開閉し、開くのは常に1つだけ",
+        "申し込みフォームはタブで無料体験と講座を切り替え"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/niwa-lp/01-first-view.jpg",
+          "caption": "トップのファーストビュー（PC表示）",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/niwa-lp/02-curriculum.jpg",
+          "caption": "無料体験から講座・開発演習・成果発表までの学習カリキュラム",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/niwa-lp/03-faq.jpg",
+          "caption": "よくある質問（タップで開閉するアコーディオン）",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/niwa-lp/04-form.jpg",
+          "caption": "無料体験と講座をタブで切り替える申し込みフォーム",
+          "frame": "wide"
+        }
+      ]
     },
     {
       "slug": "hatake-map",
       "title": "はたけマップ",
-      "summary": "地図の上に生産者の顔が並ぶ農産物マーケットプレイス。顔を見て予約し、畑まで取りに行ける。",
+      "summary": "地図の上に農家さんの顔と評価が並ぶ、農産物の予約アプリ。「誰が育てたか」で選んで予約し、畑まで取りに行くか、発送してもらえる。",
       "role": "設計・実装",
       "tech": [
         "TypeScript",
@@ -99,8 +199,9 @@
         "Expo",
         "Expo Router",
         "Convex",
-        "Mapbox",
-        "Zustand"
+        "react-native-maps / Mapbox",
+        "Zustand",
+        "Maestro"
       ],
       "year": 2026,
       "thumbnail": {
@@ -114,16 +215,51 @@
         }
       ],
       "body": {
-        "challenge": "「誰が育てたか分からない野菜」しか選べず、生産者のこだわりや人柄が買い手に届かない。",
-        "built": "地図に承認済みの生産者を顔写真つきで並べ、生産者ページ・予約カゴ・受取時間帯の指定・発送・カード決済（テスト）・双方向レビューまで備えた消費者アプリと生産者アプリ。運営の承認フローも実装。",
-        "stack": "Expo / React Native / TypeScript / Expo Router。地図は Mapbox、バックエンドは Convex（リアルタイム同期）、状態管理は Zustand。E2E は Maestro、配布は EAS Build / TestFlight。",
-        "result": "消費者・生産者・運営の一連の流れを1日で動く状態まで作り、iOS シミュレータで E2E テスト済み。TestFlight で配布できる状態。"
-      }
+        "challenge": "スーパーでは「誰が育てたか分からない野菜」しか選べず、農家さんのこだわりや人柄が買う人に届かない。農家さん側も、近くに住む人に直接売る手段が少ない。",
+        "built": "地図に農家さん（生産者）を顔写真と★評価つきで並べ、気になる人のページから野菜を予約できるアプリ。買う人向けのアプリと、農家さん向けのアプリ、運営の承認機能の3つをつくった。",
+        "stack": "Expo（SDK 57）/ React Native / TypeScript / Expo Router。地図は react-native-maps（Mapbox 版にも切り替え可能）、バックエンドは Convex（データがリアルタイムで同期する）、状態管理は Zustand。買う人・生産者・運営の3つの流れを Maestro で E2E テストし、配布は EAS Build / TestFlight。",
+        "result": "買う人・生産者・運営の一連の流れを動く状態まで作り、iOS シミュレータで E2E テスト済み。TestFlight で配布でき、Web 版は GitHub Pages で公開しています（下の画面は E2E テスト実行時の実画面）。"
+      },
+      "features": [
+        "地図で農家さんを探し、キーワード・本日収穫・発送対応・高評価・作物で絞り込み",
+        "生産者ページは「人」から始まり、こだわりと今予約できる商品が並ぶ",
+        "予約カゴで、農家さんが決めた曜日×時間帯の受取枠か、宅急便での発送を選択",
+        "予約は「リクエスト → 確定 → 受取完了」の流れ。カード決済（テストモード）と現地払いに対応",
+        "双方向レビュー、発売前の「出荷予定」商品のウォッチ",
+        "生産者アプリで予約の確定・発送（追跡番号）・在庫管理。新しい生産者は運営が承認すると地図に載る"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/hatake-map/01-map.jpg",
+          "caption": "地図に生産者の顔と★評価が並ぶ",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/hatake-map/02-farmer-sheet.jpg",
+          "caption": "ピンをタップすると生産者のこだわりと今予約できる商品",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/hatake-map/03-farmer-page.jpg",
+          "caption": "生産者ページは「人」から始まる",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/hatake-map/04-cart.jpg",
+          "caption": "予約カゴで受取日時を選ぶ",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/hatake-map/05-farmer-home.jpg",
+          "caption": "生産者アプリのホーム（リクエスト・評価・PR）",
+          "frame": "phone"
+        }
+      ]
     },
     {
       "slug": "sales-ai",
       "title": "Sales Desk（AI 通話分析・営業管理ツール）",
-      "summary": "営業電話の録音をAIが文字起こし・分析し、評価スコアと改善点を返す。商材ごとの「受注につながる進め方」も自動で蓄積する営業管理ツール。",
+      "summary": "営業電話の録音をAIが文字起こし・採点し、「どこが良くて、次はどう話せばいいか」を返す営業チーム向けツール。受注につながった話し方は商材ごとに自動でたまっていく。",
       "role": "設計・実装",
       "tech": [
         "TypeScript",
@@ -153,16 +289,50 @@
         }
       ],
       "body": {
-        "challenge": "営業の成功・失敗が個人の感覚にとどまり、どの話し方が受注につながったのかをチームで共有・再現できない。",
-        "built": "AIが通話録音を文字起こし（話者分離つき）し、受注・失注の要因、効果のあった発言、懸念への返し方を抽出。通話ごとに評価スコア・良かった点・改善点・次のアクションを提示する。分析結果は商材別に集計され、受注パターンの把握、AIによるトークスクリプト作成、過去の通話をもとに答えるナレッジ検索（RAG）に使われる。Zoom Phone の録音取り込みと Salesforce への活動記録にも対応。",
-        "stack": "Next.js（App Router）/ React / TypeScript / Tailwind CSS。データと認証は Supabase（PostgreSQL・pgvector によるベクトル検索）。文字起こしは AssemblyAI、通話分析・フィードバック・スクリプト生成は Claude API、埋め込みは OpenAI Embeddings。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。",
-        "result": "デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（AI分析結果・受注パターン・スクリプト・外部連携）を操作できます。スマホにも対応しています。AI 自動架電の Call Desk とは同じデータベースを共有する姉妹アプリです。"
-      }
+        "challenge": "営業の上手い・下手が本人の感覚の中にしかなく、「どの一言で受注できたのか」をチームで共有できない。新人は先輩の通話を聞き返す時間もなく、同じ失敗を繰り返しがち。",
+        "built": "通話の録音を入れるだけで、AIが会話を文字に起こし、100点満点の評価と具体的なアドバイスを返す。分析結果は商材ごとにたまり、チーム全員が「受注につながる進め方」を使えるようになる。",
+        "stack": "画面は Next.js（App Router）/ React / TypeScript / Tailwind CSS。データとログインは Supabase（PostgreSQL）で、過去の通話の検索には pgvector によるベクトル検索を使用。文字起こしは AssemblyAI（話者の聞き分けつき）、評価・アドバイス・台本づくりは Claude API、検索用の埋め込みは OpenAI Embeddings。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。",
+        "result": "ログイン画面の「ログインせずにゲストとして使う」から、サンプルデータの全画面を誰でも操作できます（スマホ対応）。AIが電話をかける姉妹アプリ Call Desk とはデータベースを共有していて、Sales Desk で分析した「人の営業の勝ちパターン」が Call Desk の台本づくりにも使われます。"
+      },
+      "features": [
+        "通話ごとに評価スコア・良かった点・改善点・次にやることを表示（実際の発言を引用して説明）",
+        "商材別分析：受注した通話と失注した通話を比べ、効果のあった進め方を出現率つきで一覧化",
+        "トークスクリプト：受注した通話の流れをもとに、商材・フェーズ別の台本をAIが作成",
+        "ナレッジ検索：「予算がないと言われたら？」のような質問に、過去の通話をもとにAIが回答",
+        "Zoom Phone の録音を自動で取り込み、分析結果を Salesforce に活動として記録"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/sales-ai/01-dashboard.jpg",
+          "caption": "ダッシュボード。通話数・受注率・平均スコアと、最近の通話や商談の状況をひと目で確認",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/sales-ai/02-call-analysis.jpg",
+          "caption": "通話ごとのAIフィードバック。良かった発言と改善の言い換え例を引用つきで返す",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/sales-ai/03-patterns.jpg",
+          "caption": "商材別分析。受注した通話でよく出る進め方を、出現率つきでまとめる",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/sales-ai/04-scripts.jpg",
+          "caption": "トークスクリプト。商材とフェーズを選ぶと、受注パターンをもとに台本を作成",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/sales-ai/05-chat.jpg",
+          "caption": "ナレッジ検索。営業の悩みに、過去の通話データをもとに答える",
+          "frame": "wide"
+        }
+      ]
     },
     {
       "slug": "call-desk",
       "title": "Call Desk（AI 自動架電・テレアポツール）",
-      "summary": "商材ごとに学習したAIが、手持ちの架電リストに電話をかけ、受付突破・ヒアリング・切り返しからアポ獲得（またはクロージング）まで自動で進めるテレアポツール。",
+      "summary": "商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。",
       "role": "設計・実装",
       "tech": [
         "TypeScript",
@@ -192,11 +362,40 @@
         }
       ],
       "body": {
-        "challenge": "テレアポは件数をこなす必要がある一方で、断られ続ける負担が大きく、話し方も担当者ごとにばらつく。商材ごとの売れるトークを、誰でも同じ品質で大量の架電に使えるようにしたい。",
-        "built": "利用者が商材と説明資料（テキスト・PDF）を登録すると、AIが資料・人の営業の通話分析・受注した通話・過去のAI架電の結果から、商材専用の台本（プレイブック）を作る。人が内容を確認して有効にすると、AIが架電リスト（ExcelやCSVをそのまま取り込み）に順番に電話をかけ、冒頭でAIであることと録音を告げたうえで、受付突破・ヒアリング・切り返し・日程調整まで会話する。相づちでは話を止めず、相手が話し始めたら止めて聞く。2回断られたら引き、「電話しないで」と言われたら架電停止リストに登録する。電話をかける前に、ブラウザ上で自分がお客様役になって声で試せるロールプレイ画面もある。",
-        "stack": "Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミングとツール呼び出しで、日程提示・アポ登録・転送・資料検索などを実行）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データと認証は Supabase。通話は常時起動の Node.js ワーカーで処理する。",
-        "result": "デモはログイン画面から始まり、「ログインせずにゲストとして使う」でサンプルデータの全画面（ホーム・架電キャンペーン・商材とAIの学習・ロールプレイ）を操作できます。スマホにも対応しています。デモのAIは台本どおりに進む簡易版で、実際の運用では Claude が応答します。"
-      }
+        "challenge": "テレアポは件数が必要なのに、断られ続ける負担が大きく、話し方も人によってばらつく。商材ごとの「売れるトーク」を、誰でも同じ品質でたくさんの架電に使えるようにしたい。",
+        "built": "商材と説明資料を登録すると、AIがその商材専用の台本（プレイブック）を作る。人が中身を確認して有効にすると、AIが架電リストに順番に電話をかけ、ヒアリング・切り返し・日程調整まで自分で会話する。",
+        "stack": "画面は Next.js（App Router）/ React / TypeScript / Tailwind CSS。会話は Claude API（ストリーミング応答と、日程提示・アポ登録・担当者への転送・資料検索などのツール呼び出し）。電話は Twilio Media Streams、音声認識は Deepgram、音声合成は ElevenLabs。資料検索は OpenAI Embeddings と pgvector。データとログインは Supabase で、通話は常時起動の Node.js ワーカーが処理する。",
+        "result": "ログイン画面の「ログインせずにゲストとして使う」から、サンプルデータの全画面を誰でも操作できます（スマホ対応）。デモのAIは台本どおりに進む簡易版で、本番では Claude が応答します。Sales Desk と同じデータベースを使う姉妹アプリです。"
+      },
+      "features": [
+        "台本づくり：説明資料（テキスト・PDF）、人の営業の通話分析、受注した通話、過去のAI架電の結果から、商材専用の台本をAIが作成",
+        "架電リストは Excel や CSV をそのまま取り込み、時間帯・最大回数・同時に話す本数を決めて自動で架電",
+        "冒頭でAIであることと録音を伝え、相づちでは止まらず、相手が話し始めたら止まって聞く",
+        "2回断られたら引き下がり、「電話しないで」と言われた番号は架電停止リストに登録",
+        "ロールプレイ：電話をかける前に、自分がお客様役になって声か文字でAIと話して試せる"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/call-desk/01-home.jpg",
+          "caption": "ホーム。架電数・接続率・アポ数と、直近の通話の要約を表示",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/call-desk/02-campaign.jpg",
+          "caption": "架電キャンペーン。リストの取り込みと、1件ずつの架電結果・次の予定",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/call-desk/03-agent.jpg",
+          "caption": "商材とAIの学習。資料と通話データから台本を作り、確認してから有効にする",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/call-desk/04-roleplay.jpg",
+          "caption": "ロールプレイ。自分がお客様役になって、AIの話し方を事前に確かめる",
+          "frame": "wide"
+        }
+      ]
     }
   ]
 }

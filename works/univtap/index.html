@@ -30,7 +30,7 @@
   <meta property="og:site_name" content="丹羽優貴 ポートフォリオ">
   <meta property="og:url" content="https://niwayukun-1234.github.io/works/univtap/">
   <meta property="og:title" content="ユニバーシティタップ（Uタップ） | 丹羽優貴のポートフォリオ">
-  <meta property="og:description" content="教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。">
+  <meta property="og:description" content="教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。">
   <meta property="og:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -38,11 +38,11 @@
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ユニバーシティタップ（Uタップ） | 丹羽優貴のポートフォリオ">
-  <meta name="twitter:description" content="教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。">
+  <meta name="twitter:description" content="教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。">
   <meta name="twitter:image" content="https://niwayukun-1234.github.io/ogp/ogp-portfolio.png">
 
   <title>ユニバーシティタップ（Uタップ） | 丹羽優貴のポートフォリオ</title>
-  <meta name="description" content="教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。 使用技術: React / JavaScript / Tailwind CSS / shadcn/ui / TanStack Router / Supabase / PostgreSQL。">
+  <meta name="description" content="教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。 使用技術: React 19 / TanStack Start / TypeScript / Tailwind CSS v4 / shadcn/ui / Supabase / PostgreSQL / Cloudflare Workers。">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,13 +54,13 @@
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
     "name": "ユニバーシティタップ（Uタップ）",
-    "description": "教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。",
+    "description": "教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。",
     "url": "https://niwayukun-1234.github.io/works/univtap/",
     "dateCreated": "2026",
     "inLanguage": "ja",
     "author": { "@type": "Person", "name": "丹羽優貴", "url": "https://niwayukun-1234.github.io/" },
     "creator": { "@type": "Person", "name": "丹羽優貴" },
-    "keywords": "React / JavaScript / Tailwind CSS / shadcn/ui / TanStack Router / Supabase / PostgreSQL"
+    "keywords": "React 19 / TanStack Start / TypeScript / Tailwind CSS v4 / shadcn/ui / Supabase / PostgreSQL / Cloudflare Workers"
   }
   </script>
   <script src="../../js/log-config.js" defer></script>
@@ -102,7 +102,7 @@
 
       <p class="label">Work / 2026</p>
       <h1 class="detail__title">ユニバーシティタップ（Uタップ）</h1>
-      <p class="detail__summary">教室チェックインで「今どこ？」を共有する学内SNS。現在地・入退室履歴・時間割まで1画面で見える。</p>
+      <p class="detail__summary">教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。</p>
 
       <dl class="detail__meta">
         <div class="detail__meta-item">
@@ -115,7 +115,7 @@
         </div>
         <div class="detail__meta-item">
           <dt class="detail__meta-key">Tech</dt>
-          <dd class="detail__meta-val"><ul class="tags"><li class="tag">React</li><li class="tag">JavaScript</li><li class="tag">Tailwind CSS</li><li class="tag">shadcn/ui</li><li class="tag">TanStack Router</li><li class="tag">Supabase</li><li class="tag">PostgreSQL</li></ul></dd>
+          <dd class="detail__meta-val"><ul class="tags"><li class="tag">React 19</li><li class="tag">TanStack Start</li><li class="tag">TypeScript</li><li class="tag">Tailwind CSS v4</li><li class="tag">shadcn/ui</li><li class="tag">Supabase</li><li class="tag">PostgreSQL</li><li class="tag">Cloudflare Workers</li></ul></dd>
         </div>
       </dl>
 
@@ -127,20 +127,26 @@
 
       <div class="detail__body">
         <article class="detail-block reveal">
-          <h2 class="detail-block__key">01 / Challenge</h2>
-          <p class="detail-block__text">大人数の学内コミュニティでは、待ち合わせや居場所の共有が口頭・チャット依存で非効率。（デモ）</p>
+          <h2 class="detail-block__key">01 / Challenge · 解決したいこと</h2>
+          <p class="detail-block__text">大学では「いまどこにいる？」「次の空きコマいつ？」を毎回チャットで聞き合っていて、待ち合わせや合流に手間がかかる。一方で、GPSで常に位置を見られるのは抵抗がある。</p>
         </article>
         <article class="detail-block reveal" data-delay="1">
-          <h2 class="detail-block__key">02 / Built</h2>
-          <p class="detail-block__text">教室にチェックインして居場所を共有する学内向けSNS。現在の居場所・入退室履歴・時間割・フレンドを備え、GPSを常時使わずチェックイン方式でプライバシーに配慮。（デモ）</p>
+          <h2 class="detail-block__key">02 / Built · 作ったもの</h2>
+          <p class="detail-block__text">キャンパス → 館 → 階 → 教室を選んで「入室」すると、いまいる場所とひとことメモがフレンドに共有されるアプリ。GPSは使わず、自分で入室したときだけ共有されるので、見せたくないときは見せなくていい。</p>
+          <ul class="detail-features"><li>教室を選んで入室すると、現在地とメモをフレンドに共有。退室や別の教室への入室で自動で更新</li><li>「場所」画面で、入室中のフレンドを教室ごとにまとめて確認</li><li>フレンドはID・招待リンク・QRコードで追加。居場所と履歴を見せるかはフレンドごとに設定</li><li>個別・グループチャット（ファイル送信、未読表示つき）</li><li>月〜土・1〜7限の時間割を色分けして管理。画像保存とカレンダー（iCalendar）書き出しに対応</li><li>ホーム画面に追加して使えて（PWA）、メッセージの通知にも対応</li></ul>
         </article>
-        <article class="detail-block reveal" data-delay="2">
-          <h2 class="detail-block__key">03 / Stack</h2>
-          <p class="detail-block__text">React + JavaScript。UIは Tailwind CSS + shadcn/ui系、ルーティングは TanStack Router系、バックエンドは Supabase（PostgreSQL / Auth）。ホスティングは Lovable。</p>
+      </div>
+
+      <section class="detail-gallery reveal" aria-labelledby="gallery-title"><h2 class="detail-block__key" id="gallery-title">Screens · 実際の画面</h2><div class="detail-gallery__grid detail-gallery__grid--phone"><figure class="shot shot--phone"><a class="shot__frame" href="../../images/works/univtap/01-checkin.jpg" target="_blank" rel="noopener" aria-label="教室を選んで入室。いまの居場所とメモをフレンドに共有（画像を拡大）"><img src="../../images/works/univtap/01-checkin.jpg" alt="教室を選んで入室。いまの居場所とメモをフレンドに共有" loading="lazy" decoding="async"></a><figcaption class="shot__caption">教室を選んで入室。いまの居場所とメモをフレンドに共有</figcaption></figure><figure class="shot shot--phone"><a class="shot__frame" href="../../images/works/univtap/02-places.jpg" target="_blank" rel="noopener" aria-label="入室中のフレンドを教室ごとに一覧で確認（画像を拡大）"><img src="../../images/works/univtap/02-places.jpg" alt="入室中のフレンドを教室ごとに一覧で確認" loading="lazy" decoding="async"></a><figcaption class="shot__caption">入室中のフレンドを教室ごとに一覧で確認</figcaption></figure><figure class="shot shot--phone"><a class="shot__frame" href="../../images/works/univtap/03-friend.jpg" target="_blank" rel="noopener" aria-label="フレンドの現在地と、フレンドごとの公開設定（画像を拡大）"><img src="../../images/works/univtap/03-friend.jpg" alt="フレンドの現在地と、フレンドごとの公開設定" loading="lazy" decoding="async"></a><figcaption class="shot__caption">フレンドの現在地と、フレンドごとの公開設定</figcaption></figure><figure class="shot shot--phone"><a class="shot__frame" href="../../images/works/univtap/04-timetable.jpg" target="_blank" rel="noopener" aria-label="授業・バイト・サークルを色分けした時間割（画像を拡大）"><img src="../../images/works/univtap/04-timetable.jpg" alt="授業・バイト・サークルを色分けした時間割" loading="lazy" decoding="async"></a><figcaption class="shot__caption">授業・バイト・サークルを色分けした時間割</figcaption></figure><figure class="shot shot--phone"><a class="shot__frame" href="../../images/works/univtap/05-chat.jpg" target="_blank" rel="noopener" aria-label="フレンドとの個別チャット・グループチャット（画像を拡大）"><img src="../../images/works/univtap/05-chat.jpg" alt="フレンドとの個別チャット・グループチャット" loading="lazy" decoding="async"></a><figcaption class="shot__caption">フレンドとの個別チャット・グループチャット</figcaption></figure></div></section>
+
+      <div class="detail__body detail__body--after">
+        <article class="detail-block reveal">
+          <h2 class="detail-block__key">03 / Stack · 使った技術</h2>
+          <p class="detail-block__text">React 19 + TanStack Start（TypeScript）、Tailwind CSS v4 + shadcn/ui。認証・データベース・ファイル保存・リアルタイム更新は Supabase（Lovable Cloud）。配信は Cloudflare Workers。</p>
         </article>
-        <article class="detail-block reveal" data-delay="3">
-          <h2 class="detail-block__key">04 / Result</h2>
-          <p class="detail-block__text">学内限定の安心設計で利用拡大中。具体的な数値は本人記入待ち。（デモ）</p>
+        <article class="detail-block reveal" data-delay="1">
+          <h2 class="detail-block__key">04 / Result · 成果と工夫</h2>
+          <p class="detail-block__text">同志社大学の4キャンパスに対応し、館45件・教室2,450件の教室データを登録済み。「ゲストで試す」からデモのフレンド・時間割・チャットで誰でも体験できます（下の画面はゲスト用のデモデータです）。</p>
         </article>
       </div>
 

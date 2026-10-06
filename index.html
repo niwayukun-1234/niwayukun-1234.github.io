@@ -12,9 +12,18 @@
     (function () {
       try {
         var d = document.documentElement, ref = document.referrer, internal = false;
-        try { internal = !!ref && new URL(ref).host === location.host; } catch (e) {}
+        // サイト内の別ページ（作品ページなど）から来たときだけ「サイト内の移動」とみなす。
+        // Facebook・Instagram のアプリ内ブラウザは、同じリンクを開き直すと直前のこのページを
+        // 参照元にするので、参照元がこのページ自身なら開き直しとして演出を流す
+        try {
+          var from = ref ? new URL(ref) : null;
+          internal = !!from && from.host === location.host && from.pathname + from.search !== location.pathname + location.search;
+        } catch (e) {}
+        // 「戻る」で戻ってきたときは流さない
+        var nav = window.performance && performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+        var back = !!nav && nav.type === 'back_forward';
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!reduce && !internal && !location.hash) {
+        if (!reduce && !internal && !back && !location.hash) {
           d.classList.add('intro-on');
           // LINE・Instagram・Facebook のアプリ内ブラウザは、画面を触るまで音を出させてくれない。
           // そこでだけ入口のボタンで演出を止めておき、タップした瞬間から音付きで始める
@@ -77,7 +86,8 @@
     "alternateName": ["にわ ゆうき", "Yuki Niwa"],
     "url": "https://niwayukun-1234.github.io/",
     "email": "yuki.niwa0626@gmail.com",
-    "jobTitle": "学生エンジニア",
+    "jobTitle": "株式会社Arc Technologies 代表取締役",
+    "worksFor": { "@type": "Organization", "name": "株式会社Arc Technologies" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "同志社大学" },
     "sameAs": ["https://github.com/niwayukun-1234", "https://x.com/narakendaihyou1", "https://www.facebook.com/share/1CCJJEPvf8/"]
   }
@@ -193,6 +203,7 @@
             <hr class="hero__rule">
             <p class="hero__claim">相手の勝ちを、徹底して考える。</p>
             <p class="hero__meta">
+              <span>株式会社Arc Technologies 代表取締役</span>
               <span>同志社大学 経済学部経済学科 1年</span>
               <span>西大和学園中高 卒業</span>
               <span>2007年生まれ</span>
@@ -259,10 +270,14 @@
                   <time class="timeline__date" datetime="2026-07">2026.07</time>
                   <h3 class="timeline__title">ITベンチャーで法人営業インターン開始</h3>
                 </li>
-                <li class="timeline__item is-current">
-                  <time class="timeline__date" datetime="2026-09">2026.09 – 現在</time>
+                <li class="timeline__item">
+                  <time class="timeline__date" datetime="2026-09">2026.09</time>
                   <h3 class="timeline__title">個人事業主として活動開始</h3>
                   <p class="timeline__text">法人営業の経験を活かして自ら案件を獲得し、開発まで一貫して担当。</p>
+                </li>
+                <li class="timeline__item is-current">
+                  <time class="timeline__date" datetime="2026-10">2026.10 – 現在</time>
+                  <h3 class="timeline__title">株式会社Arc Technologies 代表取締役に就任</h3>
                 </li>
               </ol>
             </div>
@@ -275,6 +290,7 @@
               <table class="meta-table">
                 <caption class="sr-only">丹羽優貴のプロフィール</caption>
                 <tbody>
+                  <tr><th scope="row">役職</th><td>株式会社Arc Technologies 代表取締役（2026年10月〜）</td></tr>
                   <tr><th scope="row">学歴</th><td>同志社大学 経済学部経済学科 1年<br>西大和学園中学校・高等学校 卒業</td></tr>
                   <tr><th scope="row">生年</th><td>2007年生まれ</td></tr>
                   <tr><th scope="row">関心領域</th><td>プロダクト企画 / フロントエンド実装 / UX設計</td></tr>

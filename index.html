@@ -397,6 +397,73 @@
 {
   "works": [
     {
+      "slug": "ksu-circles",
+      "title": "京産大サークル名鑑",
+      "summary": "京都産業大学の約158の課外活動団体を、活動日・年会費・人数・男女比など同じ項目で横断して比べられるサークル情報サイト。",
+      "role": "共同開発",
+      "tech": [
+        "Next.js 16",
+        "React 19",
+        "TypeScript",
+        "Framer Motion",
+        "Google スプレッドシート",
+        "GitHub Actions",
+        "Vercel"
+      ],
+      "year": 2026,
+      "thumbnail": {
+        "wide": "/images/work-ksu-circles.jpg",
+        "square": "/images/work-ksu-circles.jpg"
+      },
+      "links": [
+        {
+          "label": "京産大サークル名鑑",
+          "url": "https://ksu-circles.vercel.app/"
+        }
+      ],
+      "body": {
+        "challenge": "京都産業大学には約158の課外活動団体があるが、大学の公式サイトには団体名と区分しか載っていない。活動曜日、実際の年会費、人数、初心者の割合、男女比、いまから入れるかといった、入るかどうかを決めるのに必要な情報は、団体ごとのInstagramを1つずつ見るか、新歓で直接聞くしかなかった。",
+        "built": "運営が全団体に聞き取りをして、同じ15項目で埋めた名鑑サイト。一覧で曜日や年会費から絞り込み、団体ページで写真と数字を見比べられる。おすすめやランキング、口コミはあえて置かず、新入生が「失敗しない団体」を自分で選べることに絞っている。",
+        "stack": "Next.js（App Router）の静的生成で、サーバーもデータベースも持たない構成。掲載データの原本はGoogleスプレッドシートで、同期スクリプトが団体データ（JSON）に変換し、写真は縮小・WebP化してリポジトリに置く。シートが更新されるとGitHub ActionsがPRを作り、マージするとVercelが自動で公開する。",
+        "result": "スマホ縦画面を基準に、1人で158団体を回せる運用を設計。面談中にその場で掲載イメージを見せて同意をもらう使い方を想定し、掲載前の確認用ページ（検索に載らない）も用意した。現在8団体を公開中。"
+      },
+      "features": [
+        "大小のタイルを組み合わせた一覧で、団体の写真をそのまま見せる",
+        "空いている曜日・区分・ジャンル・年会費・初心者の有無で絞り込み。条件はURLに残るので、そのままDMで共有できる",
+        "団体ページは全画面の写真から始まり、スクロールすると詳細のシートが下から立ち上がる",
+        "年会費・所属人数・初心者出身・男女比を数字のカードで並べて比較しやすく",
+        "聞けていない項目は空欄にせず「未確認」と表示。¥0（無料）と未確認を必ず区別する",
+        "代表からの一言、いま入れるか、Instagram・X・公式サイトへのリンク、取材日を掲載"
+      ],
+      "gallery": [
+        {
+          "src": "/images/works/ksu-circles/01-top.jpg",
+          "caption": "表紙。8団体を活動曜日と年会費から探せる",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/ksu-circles/02-list.jpg",
+          "caption": "大小のタイルで団体の写真を並べた一覧",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/ksu-circles/03-filter.jpg",
+          "caption": "曜日・区分・ジャンル・年会費・初心者の有無で絞り込み",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/ksu-circles/04-hero.jpg",
+          "caption": "団体ページは全画面の写真から始まる",
+          "frame": "phone"
+        },
+        {
+          "src": "/images/works/ksu-circles/05-numbers.jpg",
+          "caption": "活動日と、年会費・人数・男女比などの数字",
+          "frame": "phone"
+        }
+      ]
+    },
+    {
       "slug": "univtap",
       "title": "ユニバーシティタップ（Uタップ）",
       "summary": "教室に「入室」するだけで、いまどこにいるかをフレンドに共有できる大学生向けのキャンパスSNS。居場所・時間割・チャットがひとつのアプリにまとまっている。",
@@ -795,7 +862,7 @@
     }
   ]
 }
-  </script>
+</script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

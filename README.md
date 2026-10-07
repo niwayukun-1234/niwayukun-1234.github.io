@@ -12,6 +12,7 @@
 
 | 作品 | ひとことで言うと | ソースコード |
 |---|---|---|
+| [京産大サークル名鑑](https://niwayukun-1234.github.io/works/ksu-circles/) | 京産大の約158団体を、活動日・年会費・人数など同じ項目で比べられるサークル名鑑 | [ksu-circles](https://github.com/niwayukun-1234/ksu-circles) |
 | [ユニバーシティタップ（Uタップ）](https://niwayukun-1234.github.io/works/univtap/) | 教室に「入室」して、いまの居場所をフレンドに共有する大学生向けSNS | [universitytap](https://github.com/niwayukun-1234/universitytap) |
 | [パチ単語](https://niwayukun-1234.github.io/works/pachitango/) | 正解するとパチンコの演出が始まる英単語アプリ | [Pachinko_learning](https://github.com/niwayukun-1234/https-cloud0327.github.io-Pachinko_learning-) |
 | [BeEngineer LP](https://niwayukun-1234.github.io/works/niwa-lp/) | 中高生向けプログラミング教室の申し込みページ | [niwaLP](https://github.com/niwayukun-1234/niwaLP) |

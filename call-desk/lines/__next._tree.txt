@@ -1,0 +1,2 @@
+:HL["/call-desk/_next/static/chunks/2l6n39yo4yk2_.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(dashboard)","param":null,"prefetchHints":0,"slots":{"children":{"name":"lines","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"0DqLoQKNvgqJ-1Eabf96l"}

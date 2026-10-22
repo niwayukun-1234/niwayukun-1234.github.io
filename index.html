@@ -747,7 +747,7 @@
           "url": "https://niwayukun-1234.github.io/sales-ai/"
         },
         {
-          "label": "姉妹アプリ Call Desk（AI 自動架電）",
+          "label": "姉妹アプリ AI自動コール",
           "url": "https://niwayukun-1234.github.io/call-desk/"
         }
       ],
@@ -755,7 +755,7 @@
         "challenge": "営業の上手い・下手が本人の感覚の中にしかなく、「どの一言で受注できたのか」をチームで共有できない。新人は先輩の通話を聞き返す時間もなく、同じ失敗を繰り返しがち。",
         "built": "通話の録音を入れるだけで、AIが会話を文字に起こし、100点満点の評価と具体的なアドバイスを返す。分析結果は商材ごとにたまり、チーム全員が「受注につながる進め方」を使えるようになる。",
         "stack": "画面は Next.js（App Router）/ React / TypeScript / Tailwind CSS。データとログインは Supabase（PostgreSQL）で、過去の通話の検索には pgvector によるベクトル検索を使用。文字起こしは AssemblyAI（話者の聞き分けつき）、評価・アドバイス・台本づくりは Claude API、検索用の埋め込みは OpenAI Embeddings。外部連携は Zoom Phone（Server-to-Server OAuth）と Salesforce（OAuth Client Credentials）。",
-        "result": "ログイン画面の「ログインせずにゲストとして使う」から、サンプルデータの全画面を誰でも操作できます（スマホ対応）。AIが電話をかける姉妹アプリ Call Desk とはデータベースを共有していて、Sales Desk で分析した「人の営業の勝ちパターン」が Call Desk の台本づくりにも使われます。"
+        "result": "ログイン画面の「ログインせずにゲストとして使う」から、サンプルデータの全画面を誰でも操作できます（スマホ対応）。AIが電話をかける姉妹アプリ AI自動コール とはデータベースを共有していて、Sales Desk で分析した「人の営業の勝ちパターン」が AI自動コール の台本づくりにも使われます。"
       },
       "features": [
         "通話ごとに評価スコア・良かった点・改善点・次にやることを表示（実際の発言を引用して説明）",
@@ -794,7 +794,7 @@
     },
     {
       "slug": "call-desk",
-      "title": "Call Desk（AI 自動架電・テレアポツール）",
+      "title": "AI自動コール（テレアポツール）",
       "summary": "商材ごとに学習したAIが、架電リストに順番に電話をかけて、受付突破からアポ獲得まで会話するテレアポツール。かける前にブラウザで自分がお客様役になって試せる。",
       "role": "設計・実装",
       "tech": [
@@ -816,7 +816,7 @@
       },
       "links": [
         {
-          "label": "Call Desk デモ",
+          "label": "AI自動コール デモ",
           "url": "https://niwayukun-1234.github.io/call-desk/"
         },
         {

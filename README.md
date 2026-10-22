@@ -18,14 +18,14 @@
 | [BeEngineer LP](https://niwayukun-1234.github.io/works/niwa-lp/) | 中高生向けプログラミング教室の申し込みページ | [niwaLP](https://github.com/niwayukun-1234/niwaLP) |
 | [はたけマップ](https://niwayukun-1234.github.io/works/hatake-map/) | 地図の上に農家さんの顔が並ぶ、農産物の予約アプリ | [hatake-map](https://github.com/niwayukun-1234/hatake-map) |
 | [Sales Desk](https://niwayukun-1234.github.io/works/sales-ai/) | 営業電話をAIが採点し、受注につながる話し方をためる営業ツール | 非公開 |
-| [Call Desk](https://niwayukun-1234.github.io/works/call-desk/) | AIが架電リストに電話をかけてアポを取るテレアポツール | 非公開 |
+| [AI自動コール](https://niwayukun-1234.github.io/works/call-desk/) | AIが架電リストに電話をかけてアポを取るテレアポツール | 非公開 |
 
 ![作品一覧](docs/screenshots/works.jpg)
 
 ## このサイトでできること
 
 - **作品一覧と作品ページ**：作品ごとに「解決したいこと → 作ったもの（できること）→ 実際の画面 → 使った技術 → 成果と工夫」の順で説明しています。
-- **デモ**：Sales Desk と Call Desk のデモは、このサイトの中（`/sales-ai/` と `/call-desk/`）に置いてあり、ログインせずにゲストとして全画面を操作できます。
+- **デモ**：Sales Desk と AI自動コール のデモは、このサイトの中（`/sales-ai/` と `/call-desk/`）に置いてあり、ログインせずにゲストとして全画面を操作できます。
 - **プロフィール**：経歴の時系列、よく使う技術とAIツール（Claude Code・Genspark・Codex）、連絡先。
 - **オープニング演出**：最初に開いたときのアニメーションと効果音（ブラウザの音声合成で鳴らしています）。
 - **閲覧ログ**：いつ・何人が来て・どこまで読んだかを記録し、本人だけが見られる管理ページ（`/admin/`）で確認できます。
@@ -81,7 +81,7 @@ works/<slug>/index.html    作品ページ（build-works.mjs が生成）
 scripts/                   作品ページを作るスクリプトとテンプレート
 css/  js/                  見た目と動き（色や余白は css/tokens.css にまとめている）
 images/                    サムネ・作品の画面・プロフィール写真
-sales-ai/  call-desk/      Sales Desk と Call Desk のデモ（ビルド済み）
+sales-ai/  call-desk/      Sales Desk と AI自動コール のデモ（ビルド済み）
 admin/                     閲覧ログの管理ページ（管理者だけが見られる）
 docs/screenshots/          この README の画像
 ```

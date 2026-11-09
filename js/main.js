@@ -323,6 +323,12 @@
     );
   }
 
+  /* 導入実績などのバッジ（works.json の badge。無い作品には何も出さない） */
+  function badgeMarkup(work) {
+    if (!work.badge) return "";
+    return '<span class="badge">' + esc(work.badge) + "</span>";
+  }
+
   function cardMarkup(work, index) {
     var tags = (work.tech || [])
       .map(function (t) { return '<li class="tag">' + esc(t) + "</li>"; })
@@ -332,7 +338,10 @@
         '<article class="work-card">' +
           '<div class="work-card__thumb">' + thumbMarkup(work, { w: 800, h: 450 }) + "</div>" +
           '<div class="work-card__body">' +
-            '<span class="work-card__year">' + esc(work.year) + "</span>" +
+            '<div class="work-card__top">' +
+              '<span class="work-card__year">' + esc(work.year) + "</span>" +
+              badgeMarkup(work) +
+            "</div>" +
             '<h3 class="work-card__title"><a class="work-card__link" href="/works/' + esc(work.slug) + '/">' + esc(work.title) + "</a></h3>" +
             '<p class="work-card__summary">' + esc(work.summary) + "</p>" +
             '<ul class="tags">' + tags + "</ul>" +

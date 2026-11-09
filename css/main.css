@@ -479,6 +479,33 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   letter-spacing: 0.12em;
   color: var(--text-low);
 }
+.work-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+
+/* 導入実績などのバッジ（アクセント色の枠つきピル） */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+/* カードでは年の行より背を高くしない（同じ段のカードとタイトルの位置をそろえる） */
+.work-card__top .badge { margin-block: -4px; }
+.detail__badge { margin-top: var(--s-4); }
+.detail__badge .badge { font-size: 13px; padding: 4px 12px; }
+
 .work-card__more {
   display: inline-flex;
   align-items: center;

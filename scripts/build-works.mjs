@@ -87,6 +87,12 @@ function thumbMarkup(work) {
   );
 }
 
+/** 導入実績などのバッジ（works.json の badge）。無い作品には何も出さない。 */
+function badgeMarkup(work) {
+  if (!work.badge) return "";
+  return '\n      <p class="detail__badge"><span class="badge">' + esc(work.badge) + "</span></p>";
+}
+
 /** 作品詳細の「できること」リスト（works.json の features 配列）。 */
 function featuresMarkup(work) {
   const items = work.features || [];
@@ -172,6 +178,7 @@ works.forEach((work, i) => {
     .replaceAll("{{SLUG}}", esc(work.slug))
     .replaceAll("{{TITLE}}", esc(work.title))
     .replaceAll("{{SUMMARY}}", esc(work.summary))
+    .replaceAll("{{BADGE}}", badgeMarkup(work))
     .replaceAll("{{ROLE}}", esc(work.role))
     .replaceAll("{{YEAR}}", esc(String(work.year)))
     .replaceAll("{{TECH_PLAIN}}", esc(tech.join(" / ")))
@@ -226,7 +233,7 @@ console.log("  ✓ sitemap.xml");
 const COPY = ["index.html", "404.html", "robots.txt", "favicon.svg", "favicon.ico",
   "works.json", ".nojekyll", "favicon-16.png", "favicon-32.png", "favicon-48.png",
   "favicon-512.png", "apple-touch-icon-180.png"];
-const COPY_DIRS = ["css", "js", "images", "ogp", "admin", "sales-ai", "call-desk"];
+const COPY_DIRS = ["css", "js", "images", "ogp", "admin", "sales-ai"];
 
 function copyFile(rel) {
   const from = join(ROOT, rel);

@@ -19,6 +19,7 @@
 | [はたけマップ](https://niwayukun-1234.github.io/works/hatake-map/) | 地図の上に農家さんの顔が並ぶ、農産物の予約アプリ | [hatake-map](https://github.com/niwayukun-1234/hatake-map) |
 | [Sales Desk](https://niwayukun-1234.github.io/works/sales-ai/) | 営業電話をAIが採点し、受注につながる話し方をためる営業ツール | 非公開 |
 | [AI自動コール](https://niwayukun-1234.github.io/works/call-desk/) | AIが架電リストに電話をかけてアポを取るテレアポツール | 非公開 |
+| [敬語チェッカー](https://niwayukun-1234.github.io/works/keigo-checker/) | 話し言葉のまま入れた文章を、相手と送り先に合わせた敬語にするアプリ | [Keigo-checker](https://github.com/niwayukun-1234/Keigo-checker) |
 
 ![作品一覧](docs/screenshots/works.jpg)
 
@@ -50,6 +51,7 @@
      "tech": ["TypeScript", "React Native"],
      "thumbnail": { "wide": "/images/work-hatake-map.jpg" },
      "links": [{ "label": "はたけマップ", "url": "https://…" }],
+     "linksNote": "ボタン横の一言（省略すると「実際に触れます」）",
      "body": { "challenge": "…", "built": "…", "stack": "…", "result": "…" },
      "features": ["できること1", "できること2"],  // 作ったもの の下に箇条書きで出る
      "gallery": [                                    // 実際の画面（frame は phone か wide）

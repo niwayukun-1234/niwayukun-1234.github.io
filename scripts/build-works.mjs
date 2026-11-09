@@ -141,7 +141,9 @@ function linksMarkup(work, extraClass) {
           esc(l.label) + EXT_ICON + "</a>"
     )
     .join("");
-  const note = extraClass ? '<span class="detail__links-note">実際に触れます（新しいタブで開きます）</span>' : "";
+  // ボタン横の一言。作品ごとに works.json の linksNote で差し替えられる（空文字なら出さない）
+  const noteText = work.linksNote ?? "実際に触れます（新しいタブで開きます）";
+  const note = extraClass && noteText ? '<span class="detail__links-note">' + esc(noteText) + "</span>" : "";
   return '<div class="detail__links' + (extraClass ? " " + extraClass : "") + '">' + items + note + "</div>";
 }
 

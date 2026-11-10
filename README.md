@@ -19,7 +19,7 @@
 | [BeEngineer LP](https://niwayukun-1234.github.io/works/niwa-lp/) | 中高生向けプログラミング教室の申し込みページ | [niwaLP](https://github.com/niwayukun-1234/niwaLP) |
 | [はたけマップ](https://niwayukun-1234.github.io/works/hatake-map/) | 地図の上に農家さんの顔が並ぶ、農産物の予約アプリ | [hatake-map](https://github.com/niwayukun-1234/hatake-map) |
 | [Sales Desk](https://niwayukun-1234.github.io/works/sales-ai/) | 営業電話をAIが採点し、受注につながる話し方をためる営業ツール | 非公開 |
-| [敬語チェッカー](https://niwayukun-1234.github.io/works/keigo-checker/) | 話し言葉のまま入れた文章を、相手と送り先に合わせた敬語にするアプリ | [Keigo-checker](https://github.com/niwayukun-1234/Keigo-checker) |
+| [敬語チェッカー](https://niwayukun-1234.github.io/works/keigo-checker/) | 話し言葉のまま入れた文章を、相手と送り先に合わせた敬語にするアプリ | 非公開 |
 
 ![作品一覧](docs/screenshots/works.jpg)
 

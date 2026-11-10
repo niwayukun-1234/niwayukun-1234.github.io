@@ -53,6 +53,26 @@
           "src": "/images/works/tenjikai-kakeru/02-register.jpg",
           "caption": "来場者が自分のスマホで開く登録画面。名前・会社・携帯番号を入れると、すぐにAIから電話がかかる",
           "frame": "wide"
+        },
+        {
+          "src": "/images/works/tenjikai-kakeru/03-home.jpg",
+          "caption": "ホーム。架電数・相手が出た割合・担当者へ転送した数と、直近の通話の結果を表示",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/tenjikai-kakeru/04-campaign.jpg",
+          "caption": "架電リスト。スプレッドシートや Excel から相手を取り込み、転送先の番号を決めて架電を始める",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/tenjikai-kakeru/05-reception.jpg",
+          "caption": "セリフと試し電話。受付で流すセリフを画面で書き換え、自分が受付役になって試せる",
+          "frame": "wide"
+        },
+        {
+          "src": "/images/works/tenjikai-kakeru/06-lines.jpg",
+          "caption": "回線の様子。複数の回線で同時にかけている状況を1本ずつ表示",
+          "frame": "wide"
         }
       ],
       "linksNote": "「ログインせずにゲストとして使う」から、サンプルデータで全画面を触れます（新しいタブで開きます）"
